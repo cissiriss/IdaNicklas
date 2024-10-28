@@ -26,7 +26,8 @@ app.get("/", async (request, response) => {
 // });
 
 // app.use(express.static(path.join(path.resolve(), "dist")));
+port = process.env.PORT || 3000;
 
-app.listen(3000, () => {
-  console.log("Redo på http://localhost:3000/");
+app.listen(port, () => {
+  console.log(`Redo på http://localhost:${port}/`);
 });
