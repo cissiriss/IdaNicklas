@@ -1,19 +1,24 @@
 import { FormProvider, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { formSchema } from "../types/schemas";
-import { FormDataType } from "../types/types";
+import { guestSchema } from "../types/schemas";
+import { GuestType } from "../types/types";
 
 interface OSAFormProps {
   children: React.ReactNode;
 }
 
 export function OSAFormProvider({ children }: OSAFormProps) {
-  const methods = useForm<FormDataType>({
+  const methods = useForm<GuestType>({
     defaultValues: {
-      name: "Ida",
+      firstName: "",
+      lastName: "",
       email: "",
+      attendingWedding: false,
+      attendingDinner: false,
+      specialFood: undefined,
+      misc: undefined,
     },
-    resolver: zodResolver(formSchema),
+    resolver: zodResolver(guestSchema),
   });
   return <FormProvider {...methods}>{children}</FormProvider>;
 }

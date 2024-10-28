@@ -18,13 +18,17 @@ const client = new Client({
 
 client.connect();
 
-app.get("/api", async (request, response) => {
+app.get("/api", async (_, response) => {
   const { rows } = await client.query(
     "SELECT * FROM RSVPs WHERE attending_wedding = $1",
     [true]
   );
 
   response.send(rows);
+});
+
+app.post("/api/submit", async (request, response) => {
+  console.log(request);
 });
 
 app.use(express.static(path.join(path.resolve(), "dist")));
