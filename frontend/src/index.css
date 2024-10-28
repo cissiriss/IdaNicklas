@@ -1,0 +1,110 @@
+body {
+  background-color: #fafafa;
+  margin: 0;
+}
+
+.menu-button {
+  position: relative;
+  width: 70px;
+}
+
+.welcome-text {
+  margin: 20px;
+  p {
+    font-size: 18px;
+  }
+}
+
+#header,
+#subheader {
+  align-self: center;
+  color: rgb(16, 43, 74);
+  font-family: "Playwrite GB S", serif;
+  font-size: 80px;
+  font-weight: lighter;
+  margin: 0;
+}
+
+#subheader {
+  font-size: 50px;
+  color: rgb(85, 85, 85);
+}
+
+.dropdown-container {
+  position: absolute;
+  flex-direction: row;
+  width: 50vw;
+  height: 100vh;
+  background-color: #fafafa;
+  border-radius: 0 0 8px 8px;
+  box-shadow: 6px 6px 5px #88888896;
+  li {
+    list-style: none;
+    margin: 25px 0 15px 15px;
+    a {
+      text-decoration: none;
+      color: rgb(43, 43, 43);
+      font-size: 18px;
+    }
+  }
+}
+
+#home,
+#wedding,
+#party,
+#info,
+#gifts,
+#speaches {
+  height: 100vh;
+  margin: 30px 20%;
+  display: flex;
+  flex-direction: column;
+  font-family: Arima, open-sans, serif;
+  font-weight: 200;
+  text-align: center;
+}
+
+#osa {
+  height: 100vh;
+  margin: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: Arima, open-sans, serif;
+  font-weight: 200;
+  text-align: center;
+}
+
+.button-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.osa-button {
+  margin-bottom: 80px;
+}
+
+.form-container {
+  width: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-self: center;
+  margin: 20px;
+}
+
+.radio-buttons-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.input-field {
+  margin: 20px;
+}
+
+.osa-radiobutton {
+  display: flex;
+  flex-direction: row;
+}
