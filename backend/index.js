@@ -18,8 +18,11 @@ const client = new Client({
 
 client.connect();
 
-app.get("/guests", async (request, response) => {
-  const { rows } = await client.query("SELECT * FROM guests");
+app.get("/api", async (request, response) => {
+  const { rows } = await client.query(
+    "SELECT * FROM RSVPs WHERE attending_wedding = $1",
+    [true]
+  );
 
   response.send(rows);
 });

@@ -4,8 +4,7 @@ export const GetConfirmedGuests = () => {
   const [confirmedGuests, setConfirmedGuests] = useState([]);
 
   useEffect(() => {
-    const url = "http://localhost:3000/guests";
-    fetch(url)
+    fetch("/api")
       .then((response) => response.json())
       .then((data) => setConfirmedGuests(data));
     console.log("hej");
