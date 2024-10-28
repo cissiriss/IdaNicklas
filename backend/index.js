@@ -1,8 +1,8 @@
 const dotenv = require("dotenv"),
-  express = require("express"),
-  { Client } = require("pg");
+  path = require("path");
 
-path = require("path");
+const express = require("express"),
+  { Client } = require("pg");
 
 const app = express();
 
@@ -19,13 +19,6 @@ app.get("/", async (request, response) => {
 
   response.send(rows);
 });
-
-// app.post("/post", async (request, response) => {
-//   const res = await client.query(
-//     "INSERT INTO guests (first_name, last_name, email) VALUES ($1, $2, $3)",
-//     ["Jimmie", "Rissanen", "jimmies@me.com"]
-//   );
-// });
 
 app.use(express.static(path.join(path.resolve(), "dist")));
 
