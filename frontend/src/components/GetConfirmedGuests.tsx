@@ -12,7 +12,7 @@ export const GetConfirmedGuests = () => {
 
   return (
     <>
-      <div>Hur många gäster kommer? </div>
+      <div>Hur många gäster har svarat ja?</div>
       <div>{confirmedGuests.length}</div>
     </>
   );

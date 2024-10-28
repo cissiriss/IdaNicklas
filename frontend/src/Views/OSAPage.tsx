@@ -15,10 +15,14 @@ export const OSAPage = () => {
 
   return (
     <>
+      <div className="osa-container">
+        <h4>OSA i formuläret nedan senast 23/2</h4>
+        <h5>Välj antalet personer som du vill lämna svar för</h5>
+      </div>
       <div className="button-container">
         {guestnr.map((guest) => (
           <input
-            className="Osa-button"
+            className="osa-button"
             type="button"
             key={guest.nr}
             value={guest.nr}
