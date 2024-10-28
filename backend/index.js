@@ -2,6 +2,8 @@ const dotenv = require("dotenv"),
   express = require("express"),
   { Client } = require("pg");
 
+path = require("path");
+
 const app = express();
 
 dotenv.config();
@@ -25,7 +27,8 @@ app.get("/", async (request, response) => {
 //   );
 // });
 
-// app.use(express.static(path.join(path.resolve(), "dist")));
+app.use(express.static(path.join(path.resolve(), "dist")));
+
 port = process.env.PORT || 3000;
 
 app.listen(port, () => {
