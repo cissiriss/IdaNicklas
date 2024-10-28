@@ -14,7 +14,7 @@ const client = new Client({
 
 client.connect();
 
-app.get("/", async (request, response) => {
+app.get("/guests", async (request, response) => {
   const { rows } = await client.query("SELECT * FROM guests");
 
   response.send(rows);
