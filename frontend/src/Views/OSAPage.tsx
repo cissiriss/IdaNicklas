@@ -1,5 +1,6 @@
 import { useState } from "react";
 import OsaForm from "../components/OsaForm";
+import { GetConfirmedGuests } from "../components/GetConfirmedGuests";
 type Guest = {
   nr: number;
 };
@@ -31,6 +32,9 @@ export const OSAPage = () => {
           <OsaForm />
         </div>
       ))}
+      <div>
+        <GetConfirmedGuests />
+      </div>
     </>
   );
 };

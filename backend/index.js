@@ -4,7 +4,11 @@ const dotenv = require("dotenv"),
 const express = require("express"),
   { Client } = require("pg");
 
+const cors = require("cors");
+
 const app = express();
+
+app.use(cors());
 
 dotenv.config();
 
