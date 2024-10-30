@@ -3,10 +3,11 @@ export const WeddingPage = () => {
     <>
       <h3>Vigsel</h3>
       <div>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam in
-        mollitia ipsa libero cumque, reiciendis rem, beatae id delectus
-        quisquam, incidunt corporis vero architecto corrupti quas dignissimos
-        necessitatibus tempora. Eum!
+        <h3>Vigsel i Jonsered </h3>
+
+        <p>Klockan 15 börjar vår vigsel i Jonsereds kyrka.</p>
+
+        <p>Adress: Anna-Stinas Lid, 433 75 Jonsered</p>
       </div>
     </>
   );

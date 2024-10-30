@@ -9,6 +9,7 @@ const cors = require("cors");
 const app = express();
 
 app.use(cors());
+app.use(express.json());
 
 dotenv.config();
 
@@ -23,12 +24,13 @@ app.get("/api", async (_, response) => {
     "SELECT * FROM RSVPs WHERE attending_wedding = $1",
     [true]
   );
-
   response.send(rows);
 });
 
-app.post("/api/submit", async (request, response) => {
-  console.log(request);
+app.post("/api/submit", (req, res) => {
+  const test = req.body;
+  console.log("Received data:", test); // Log the received data instead of saving it to the database
+  res.status(200).json({ message: "Data received successfully" });
 });
 
 app.use(express.static(path.join(path.resolve(), "dist")));

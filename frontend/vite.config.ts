@@ -6,6 +6,7 @@ export default defineConfig({
   server: {
     proxy: {
       "/api": "http://localhost:3000",
+      // "/submit": "http://localhost:3000",
     },
   },
 });

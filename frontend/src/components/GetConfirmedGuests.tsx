@@ -7,7 +7,6 @@ export const GetConfirmedGuests = () => {
     fetch("/api")
       .then((response) => response.json())
       .then((data) => setConfirmedGuests(data));
-    console.log("hej");
   }, []);
 
   return (

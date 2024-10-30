@@ -8,8 +8,16 @@ export default function OsaForm() {
   const { register, handleSubmit } = useFormContext<GuestType>();
   const [isComing, setIsComing] = useState<boolean>(false);
 
-  const onSubmit: SubmitHandler<GuestType> = (data) => {
-    fetch("/api/submit", { method: "POST", body: JSON.stringify(data) });
+  const onSubmit: SubmitHandler<GuestType> = async (data) => {
+    await fetch("/api/submit", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        data,
+      }),
+    });
   };
 
   return (
@@ -23,14 +31,14 @@ export default function OsaForm() {
               <label>
                 Jag kommer gärna kvällen innan fredagen 27/6
                 <input
-                  {...register("attendingDinner")}
+                  // {...register("attendingDinner")}
                   type="radio"
                   name="osa-friday"
                   value="Självklart"
                 />{" "}
                 Självklart!
                 <input
-                  {...register("attendingWedding")}
+                  // {...register("attendingWedding")}
                   type="radio"
                   name="osa-friday"
                   value="Tyvärr"
@@ -41,11 +49,14 @@ export default function OsaForm() {
 
             <label className="input-field">
               Förnamn
-              <input {...register("firstName")} type="text" />
+              <input {...register("name")} type="text" />
             </label>
             <label className="input-field">
               Efternamn
-              <input {...register("lastName")} type="text" />
+              <input
+                // {...register("lastName")}
+                type="text"
+              />
             </label>
             <label className="input-field">
               Mailadress
@@ -54,7 +65,7 @@ export default function OsaForm() {
             <label className="input-field">
               Specialkost
               <input
-                {...register("specialFood")}
+                // {...register("specialFood")}
                 type="text"
                 name="Specialkost"
               />
@@ -62,7 +73,11 @@ export default function OsaForm() {
             <label className="input-field">
               Övrigt
               <p>Är det något annat brudparet bör känna till? </p>
-              <input {...register("misc")} type="text" name="Övrigt" />
+              <input
+                //  {...register("misc")}
+                type="text"
+                name="Övrigt"
+              />
             </label>
           </>
         )}
