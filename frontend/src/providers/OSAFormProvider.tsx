@@ -11,12 +11,12 @@ export function OSAFormProvider({ children }: OSAFormProps) {
   const methods = useForm<GuestType>({
     defaultValues: {
       name: "",
-      // lastName: "",
+      lastName: "",
       email: "",
-      // attendingWedding: false,
-      // attendingDinner: false,
-      // specialFood: undefined,
-      // misc: undefined,
+      attendingWedding: false,
+      attendingDinner: false,
+      specialFood: "",
+      misc: "",
     },
     resolver: zodResolver(guestSchema),
   });

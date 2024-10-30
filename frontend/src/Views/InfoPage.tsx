@@ -18,11 +18,12 @@ export const InfoPage = () => {
         <p>
           Om du är intresserad av att boka hotell till vår bröllopshelg behöver
           du göra följande:
-          <p>1. www.gibsonshotell.se/boka</p>
-          <p>2. Skriv in koden IDANICKLAS tryck tillämpa</p>
-          <p>3. Välj datum, antal gäster, sök</p>
-          <p>4. Välj rumstyp och boka</p>
         </p>
+        <p>1. www.gibsonshotell.se/boka</p>
+        <p>2. Skriv in koden IDANICKLAS tryck tillämpa</p>
+        <p>3. Välj datum, antal gäster, sök</p>
+        <p>4. Välj rumstyp och boka</p>
+
         <p>
           För kännedom: det finns 27 rum på hotellet, av blandad storlek. Det
           innebär att om du önskar en specifik rumstyp bör du boka skyndsamt!

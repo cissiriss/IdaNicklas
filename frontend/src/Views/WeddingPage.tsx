@@ -1,7 +1,6 @@
 export const WeddingPage = () => {
   return (
     <>
-      <h3>Vigsel</h3>
       <div>
         <h3>Vigsel i Jonsered </h3>
 

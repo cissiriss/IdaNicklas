@@ -73,7 +73,12 @@ body {
 }
 
 #home {
-  height: 100vh;
+  height: auto;
+}
+
+.countdown-container {
+  height: 300px;
+  font-size: 30px;
 }
 
 #osa {
