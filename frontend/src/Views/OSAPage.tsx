@@ -39,7 +39,7 @@ export const OSAPage = () => {
       ))}
       <div>
         <GetConfirmedGuests />
-        <MailTest />
+        {/* <MailTest /> */}
       </div>
     </>
   );
