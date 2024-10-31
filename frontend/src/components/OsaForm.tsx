@@ -5,7 +5,11 @@ import { StartFieldSet } from "./StartFieldset";
 import { useState } from "react";
 
 export default function OsaForm() {
-  const { register, handleSubmit } = useFormContext<GuestType>();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useFormContext<GuestType>();
   const [isComing, setIsComing] = useState<boolean>(false);
 
   const onSubmit: SubmitHandler<GuestType> = async (data) => {
@@ -18,6 +22,7 @@ export default function OsaForm() {
         data,
       }),
     });
+    console.log(errors);
   };
 
   return (
@@ -35,14 +40,17 @@ export default function OsaForm() {
                   type="radio"
                   name="osa-friday"
                   value="Självklart"
-                />{" "}
+                />
+                {errors.attendingDinner && (
+                  <p>{errors.attendingDinner.message}</p>
+                )}
                 Självklart!
                 <input
                   {...register("attendingWedding")}
                   type="radio"
                   name="osa-friday"
                   value="Tyvärr"
-                />{" "}
+                />
                 Tyvärr inte..
               </label>
             </fieldset>

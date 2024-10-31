@@ -1,37 +1,43 @@
 body {
-  background-color: #fafafa;
+  background-color: #eeeeee;
   margin: 0;
+  font-family: "Alumni Sans Pinstripe", open-sans, serif;
+  overflow-x: hidden;
 }
 
 .menu-button {
   position: relative;
   width: 70px;
+  height: 40px;
+  margin: 10px;
 }
 
 .welcome-text {
   margin: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   p {
-    font-size: 18px;
+    font-size: 22px;
   }
 }
 
 #header,
 #subheader {
-  align-self: center;
   color: rgb(16, 43, 74);
-  font-family: "Playwrite GB S", serif;
+  font-family: "Windsong", serif;
   font-size: 80px;
   font-weight: lighter;
   margin: 0;
 }
 
 #subheader {
-  font-size: 40px;
+  font-size: 60px;
   color: rgb(85, 85, 85);
 }
 
 #disney-image {
-  width: 60%;
+  width: 50%;
   border-radius: 8px;
 }
 
@@ -41,7 +47,7 @@ body {
   width: 50vw;
   height: 100vh;
   background-color: #fafafa;
-  border-radius: 0 0 8px 8px;
+  border-radius: 8px;
   box-shadow: 6px 6px 5px #88888896;
   li {
     list-style: none;
@@ -49,7 +55,7 @@ body {
     a {
       text-decoration: none;
       color: rgb(43, 43, 43);
-      font-size: 18px;
+      font-size: 22px;
     }
   }
 }
@@ -57,28 +63,30 @@ body {
 #home,
 #wedding,
 #party,
-#info,
 #gifts,
 #speaches {
   height: 80vh;
   margin: 30px 12%;
   display: flex;
   flex-direction: column;
-  font-family: Arima, open-sans, serif;
-  font-weight: 200;
-  text-align: center;
-  p {
-    margin: 5px;
-  }
+  justify-content: center;
+  font-weight: 400;
 }
 
 #home {
-  height: auto;
+  height: fit-content;
+  align-items: center;
 }
 
 .countdown-container {
-  height: 300px;
-  font-size: 30px;
+  display: flex;
+  justify-content: center;
+  padding-top: 0;
+  width: 40vw;
+  font-size: 40px;
+  background-color: rgb(251, 251, 251);
+  padding: 10px 60px;
+  border-radius: 8px;
 }
 
 #osa {
@@ -89,13 +97,16 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  font-family: Arima, open-sans, serif;
-  font-weight: 200;
+  font-weight: 400;
   text-align: center;
 }
 
 #info {
   height: auto;
+  margin: 30px 12%;
+  display: flex;
+  flex-direction: column;
+  font-weight: 400;
 }
 
 .button-container {
@@ -140,6 +151,14 @@ body {
 }
 
 .map-container {
-  height: 70vh;
-  margin: 20px 0;
+  height: 400px;
+}
+
+p {
+  margin: 5px;
+  font-size: 22px;
+}
+
+h3 {
+  font-size: 30px;
 }

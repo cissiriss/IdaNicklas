@@ -1,13 +1,16 @@
 export const PartyPage = () => {
   return (
     <>
-      <h3>Festen</h3>
+      <h3>Middag & Fest</h3>
 
       <div>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam in
-        mollitia ipsa libero cumque, reiciendis rem, beatae id delectus
-        quisquam, incidunt corporis vero architecto corrupti quas dignissimos
-        necessitatibus tempora. Eum!
+        <p>Efter bröllopet blir det middag och fest i Jonsereds fabriker! </p>
+        <p> Adress: Fabriksstråket 36, 433 76 Jonsered </p>{" "}
+        <p>Klädsel: Kavaj </p>
+        <p>
+          Barn är tyvärr inte välkomna på varken vigsel eller middag. Undantag
+          är barn som ammas.
+        </p>
       </div>
     </>
   );

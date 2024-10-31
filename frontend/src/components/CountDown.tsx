@@ -18,9 +18,8 @@ export const CountDown: React.FC<CountdownProps> = ({ targetDate }) => {
     }, 1000);
 
     return () => clearInterval(timer);
-  }, [targetDate]);
+  });
 
-  // Uppdaterad formatTime-funktion för att inkludera dagar
   const formatTime = (milliseconds: number) => {
     const days = Math.floor(milliseconds / (1000 * 60 * 60 * 24));
     const hours = Math.floor((milliseconds / (1000 * 60 * 60)) % 24);
@@ -31,7 +30,6 @@ export const CountDown: React.FC<CountdownProps> = ({ targetDate }) => {
 
   return (
     <div>
-      <h5>Tid kvar till bröllopet: </h5>
       {timeLeft > 0 ? (
         <p>{formatTime(timeLeft)}</p>
       ) : (

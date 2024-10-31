@@ -10,6 +10,7 @@ export const StartPage = () => {
       <div className="welcome-text">
         <img id="disney-image" src={disneyImage} alt="couple" />
       </div>
+      <h3>Tid kvar till bröllopet 🤵🏼👰🏼‍♀️ </h3>
       <div className="countdown-container">
         <CountDown targetDate={targetDate} />
       </div>
