@@ -1,7 +1,7 @@
 import { useState } from "react";
 import OsaForm from "../components/OsaForm";
 import { GetConfirmedGuests } from "../components/GetConfirmedGuests";
-// import MailTest from "../components/MailTest";
+import MailTest from "../components/MailTest";
 type Guest = {
   nr: number;
 };
@@ -39,7 +39,7 @@ export const OSAPage = () => {
       ))}
       <div>
         <GetConfirmedGuests />
-        {/* <MailTest /> */}
+        <MailTest />
       </div>
     </>
   );
