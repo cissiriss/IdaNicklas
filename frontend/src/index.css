@@ -22,13 +22,34 @@ body {
   }
 }
 
-#header,
+#header-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.header {
+  font-family: "Alumni Sans Pinstripe", serif;
+  font-size: 90px;
+  color: rgb(16, 43, 74);
+  margin: 0;
+  padding-left: 10px;
+}
+
 #subheader {
   color: rgb(16, 43, 74);
-  font-family: "Windsong", serif;
+  font-family: "Alumni Sans Pinstripe", serif;
   font-size: 80px;
   font-weight: lighter;
   margin: 0;
+}
+
+#and {
+  font-family: "WindSong";
+  font-size: 80px;
+  padding: 0 10px 0 0;
+  margin: 0;
+  font-weight: 200;
 }
 
 #subheader {
@@ -161,4 +182,5 @@ p {
 
 h3 {
   font-size: 30px;
+  font-family: "Windsong", serif;
 }
