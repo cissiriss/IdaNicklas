@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 
 interface Pages {
   label: string;
@@ -15,7 +15,7 @@ export const DropDown = () => {
       { label: "Vigsel", key: "wedding" },
 
       {
-        label: "Festen",
+        label: "Middag & Fest",
         key: "party",
       },
       {
@@ -38,11 +38,29 @@ export const DropDown = () => {
   }, []);
 
   const [isOpen, setIsOpen] = useState(false);
+  const dropdownRef = useRef<HTMLDivElement>(null);
 
   const toggleDropdown = () => {
     setIsOpen((prevIsOpen) => !prevIsOpen);
   };
 
+  const handleClickOutside = (event: MouseEvent) => {
+    if (
+      dropdownRef.current &&
+      !dropdownRef.current.contains(event.target as Node)
+    ) {
+      setIsOpen(false);
+    }
+  };
+
+  useEffect(() => {
+    // Bind the event listener
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      // Cleanup the event listener on component unmount
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
   return (
     <>
       <header>

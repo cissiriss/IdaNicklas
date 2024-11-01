@@ -1,18 +1,18 @@
-import { useEffect, useState } from "react";
+// import { useEffect, useState } from "react";
 
-export const GetConfirmedGuests = () => {
-  const [confirmedGuests, setConfirmedGuests] = useState([]);
+// export const GetConfirmedGuests = () => {
+//   const [confirmedGuests, setConfirmedGuests] = useState([]);
 
-  useEffect(() => {
-    fetch("/api")
-      .then((response) => response.json())
-      .then((data) => setConfirmedGuests(data));
-  }, []);
+//   useEffect(() => {
+//     fetch("/api")
+//       .then((response) => response.json())
+//       .then((data) => setConfirmedGuests(data));
+//   }, []);
 
-  return (
-    <>
-      <div>Hur många gäster har svarat ja?</div>
-      <div>{confirmedGuests.length}</div>
-    </>
-  );
-};
+//   return (
+//     <>
+//       <div>Hur många gäster har svarat ja?</div>
+//       <div>{confirmedGuests.length}</div>
+//     </>
+//   );
+// };

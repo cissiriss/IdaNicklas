@@ -2,6 +2,7 @@ body {
   background-color: #eeeeee;
   margin: 0;
   font-family: "Alumni Sans Pinstripe", open-sans, serif;
+  font-weight: 800;
   overflow-x: hidden;
 }
 
@@ -31,7 +32,7 @@ body {
 .header {
   font-family: "Alumni Sans Pinstripe", serif;
   font-size: 90px;
-  color: rgb(16, 43, 74);
+  color: #52677d;
   margin: 0;
   padding-left: 10px;
 }
@@ -49,17 +50,23 @@ body {
   font-size: 80px;
   padding: 0 10px 0 0;
   margin: 0;
+  color: #52677d;
   font-weight: 200;
 }
 
 #subheader {
   font-size: 60px;
-  color: rgb(85, 85, 85);
+  color: rgb(30, 30, 30);
+  font-weight: 800;
 }
 
 #disney-image {
-  width: 50%;
+  width: 650px;
   border-radius: 8px;
+}
+
+#party-image {
+  width: 600px;
 }
 
 .dropdown-container {
@@ -67,16 +74,18 @@ body {
   flex-direction: row;
   width: 50vw;
   height: 100vh;
-  background-color: #fafafa;
+  background-color: #8ca0b6;
+
   border-radius: 8px;
   box-shadow: 6px 6px 5px #88888896;
   li {
     list-style: none;
-    margin: 25px 0 15px 15px;
+    margin: 50px 0 15px 15px;
     a {
       text-decoration: none;
-      color: rgb(43, 43, 43);
-      font-size: 22px;
+      color: #fffafa;
+      font-size: 28px;
+      font-weight: 600;
     }
   }
 }
@@ -86,7 +95,7 @@ body {
 #party,
 #gifts,
 #speaches {
-  height: 80vh;
+  height: auto;
   margin: 30px 12%;
   display: flex;
   flex-direction: column;
@@ -104,14 +113,17 @@ body {
   justify-content: center;
   padding-top: 0;
   width: 40vw;
-  font-size: 40px;
+
   background-color: rgb(251, 251, 251);
   padding: 10px 60px;
   border-radius: 8px;
+  p {
+    font-size: 40px;
+  }
 }
 
 #osa {
-  height: 80vh;
+  height: 100vh;
   margin: 20px;
   margin-bottom: 20%;
   display: flex;
@@ -176,11 +188,17 @@ body {
 }
 
 p {
-  margin: 5px;
+  margin: 0 5px;
   font-size: 22px;
 }
 
-h3 {
+h3,
+h4 {
   font-size: 30px;
-  font-family: "Windsong", serif;
+  font-family: "Licorice", serif;
+}
+
+h5 {
+  font-family: "WindSong", serif;
+  font-size: 20px;
 }

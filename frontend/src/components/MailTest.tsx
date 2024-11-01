@@ -5,7 +5,7 @@ const SignupForm: React.FC = () => {
 
   async function sendConfirmationEmail(email: string): Promise<void> {
     try {
-      const response = await fetch("api/sendconfirmation", {
+      const response = await fetch("api/submit", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
