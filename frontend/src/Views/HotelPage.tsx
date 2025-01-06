@@ -12,7 +12,7 @@ export default function HotelPage() {
         boka skyndsamt! Brudparet bor på hotellet fredag till söndag. Om du
         också kommer bo på hotellet ser vi fram emot att ses vid frukostbuffén.
       </p>
-      <img src={bild3} alt="" />
+      <img src={bild3} alt="couple" />
     </div>
   );
 }

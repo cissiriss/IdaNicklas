@@ -32,7 +32,7 @@ export default function ProgramPage() {
           Får du tid över mellan festligheterna rekommenderar vi varmt en
           promenad både i fabriksområdet och Jonsereds trädgårdar.
         </p>
-        <img src={bild5} alt="" />
+        <img src={bild5} alt="couple" />
       </div>
       <div
         className="flex flex-col items-center max-w-2xl"
@@ -40,7 +40,7 @@ export default function ProgramPage() {
       >
         <h2>Vigsel i Jonsered</h2>
         <p>Vigseln startar 15.00 vid herrgårdsscenen i Jonsereds trädgårdar.</p>
-        <img src={bild6} alt="" />
+        <img src={bild6} alt="couple" />
       </div>
       <div>
         <h2>Middag och Fest</h2>
