@@ -1,26 +1,19 @@
-body {
-  background-color: #eeeeee;
-  margin: 0;
-  font-family: "Alumni Sans Pinstripe", open-sans, serif;
-  font-weight: 800;
-  overflow-x: hidden;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+img {
+  width: 650px;
+  border-radius: 8px;
 }
 
-.menu-button {
-  position: relative;
-  width: 70px;
-  height: 40px;
-  margin: 10px;
-}
-
-.welcome-text {
-  margin: 20px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  p {
-    font-size: 22px;
-  }
+.dropdown-container {
+  position: absolute;
+  flex-direction: row;
+  width: 50vw;
+  height: 100vh;
+  border-radius: 8px;
+  box-shadow: 6px 6px 5px #88888896;
 }
 
 #header-container {
@@ -47,158 +40,15 @@ body {
 
 #and {
   font-family: "WindSong";
-  font-size: 80px;
-  padding: 0 10px 0 0;
+  font-size: 90px;
+  padding: 10px 10px 0 0;
   margin: 0;
   color: #52677d;
   font-weight: 200;
 }
 
-#subheader {
-  font-size: 60px;
-  color: rgb(30, 30, 30);
-  font-weight: 800;
-}
-
-#disney-image {
-  width: 650px;
-  border-radius: 8px;
-}
-
-#party-image {
-  width: 600px;
-}
-
-.dropdown-container {
-  position: absolute;
-  flex-direction: row;
-  width: 50vw;
-  height: 100vh;
-  background-color: #8ca0b6;
-
-  border-radius: 8px;
-  box-shadow: 6px 6px 5px #88888896;
-  li {
-    list-style: none;
-    margin: 50px 0 15px 15px;
-    a {
-      text-decoration: none;
-      color: #fffafa;
-      font-size: 28px;
-      font-weight: 600;
-    }
+@media screen and (max-width: 600px) {
+  .dropdown-container {
+    width: 100vw;
   }
-}
-
-#home,
-#wedding,
-#party,
-#gifts,
-#speaches {
-  height: auto;
-  margin: 30px 12%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  font-weight: 400;
-}
-
-#home {
-  height: fit-content;
-  align-items: center;
-}
-
-.countdown-container {
-  display: flex;
-  justify-content: center;
-  padding-top: 0;
-  width: 40vw;
-
-  background-color: rgb(251, 251, 251);
-  padding: 10px 60px;
-  border-radius: 8px;
-  p {
-    font-size: 40px;
-  }
-}
-
-#osa {
-  height: 100vh;
-  margin: 20px;
-  margin-bottom: 20%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  font-weight: 400;
-  text-align: center;
-}
-
-#info {
-  height: auto;
-  margin: 30px 12%;
-  display: flex;
-  flex-direction: column;
-  font-weight: 400;
-}
-
-.button-container {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-}
-
-.osa-button {
-  margin-bottom: 80px;
-}
-
-.form-container {
-  width: 400px;
-  display: flex;
-  flex-direction: column;
-  justify-self: center;
-  margin: 10px;
-}
-
-.radio-buttons-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.input-field {
-  margin: 20px;
-}
-
-.osa-container {
-  margin: 10px;
-}
-
-.osa-radiobutton {
-  display: flex;
-  flex-direction: row;
-}
-
-.confirmed-guests {
-  margin: 20px;
-}
-
-.map-container {
-  height: 400px;
-}
-
-p {
-  margin: 0 5px;
-  font-size: 22px;
-}
-
-h3,
-h4 {
-  font-size: 30px;
-  font-family: "Licorice", serif;
-}
-
-h5 {
-  font-family: "WindSong", serif;
-  font-size: 20px;
 }

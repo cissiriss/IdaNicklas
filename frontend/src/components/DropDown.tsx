@@ -1,42 +1,6 @@
-import { useEffect, useMemo, useRef, useState } from "react";
-
-interface Pages {
-  label: string;
-  key: string;
-}
+import { useEffect, useRef, useState } from "react";
 
 export const DropDown = () => {
-  const pageViews: Pages[] = useMemo(() => {
-    return [
-      {
-        label: "Start",
-        key: "home",
-      },
-      { label: "Vigsel", key: "wedding" },
-
-      {
-        label: "Middag & Fest",
-        key: "party",
-      },
-      {
-        label: "Bra att veta",
-        key: "info",
-      },
-      {
-        label: "Gåvor",
-        key: "gifts",
-      },
-      {
-        label: "Tal",
-        key: "speaches",
-      },
-      {
-        label: "OSA",
-        key: "osa",
-      },
-    ];
-  }, []);
-
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
@@ -54,10 +18,8 @@ export const DropDown = () => {
   };
 
   useEffect(() => {
-    // Bind the event listener
     document.addEventListener("mousedown", handleClickOutside);
     return () => {
-      // Cleanup the event listener on component unmount
       document.removeEventListener("mousedown", handleClickOutside);
     };
   }, []);
@@ -66,21 +28,86 @@ export const DropDown = () => {
       <header>
         <nav>
           <input
-            className="menu-button"
             type="button"
+            className="text-3xl bg-blue text-white rounded p-2 m-4 text-center"
             value="Meny"
             onClick={toggleDropdown}
           />
           {isOpen && (
-            <div className="dropdown-container">
-              <ul className="drop-down">
-                {pageViews.map((view) => (
-                  <li key={view.key}>
-                    <a href={`#${view.key}`}>{view.label}</a>
-                  </li>
-                ))}
-              </ul>
-            </div>
+            <ul className="dropdown-container menu bg-blue rounded-box w-56">
+              <li>
+                <details open>
+                  <summary className="text-3xl text-white">
+                    <a href="#wedding">Bröllopet</a>
+                  </summary>
+                  <ul>
+                    <li onClick={toggleDropdown}>
+                      <a className="text-2xl text-white" href="#osa">
+                        OSA
+                      </a>
+                    </li>
+                    <li onClick={toggleDropdown}>
+                      <a className="text-2xl text-white" href="#hotel">
+                        Hotell
+                      </a>
+                    </li>
+                    <li onClick={toggleDropdown}>
+                      <a className="text-2xl text-white" href="#map">
+                        Hita hit
+                      </a>
+                    </li>
+                    <li onClick={toggleDropdown}>
+                      <a className="text-2xl text-white" href="#songs">
+                        Låtförslag
+                      </a>
+                    </li>
+                    <li onClick={toggleDropdown}>
+                      <a className="text-2xl text-white" href="#gifts">
+                        Gåvor
+                      </a>
+                    </li>
+                  </ul>
+                </details>
+                <details open>
+                  <summary className="text-3xl text-white">Program</summary>
+                  <ul>
+                    <li onClick={toggleDropdown}>
+                      <a className="text-2xl text-white" href="#friday">
+                        Uppladdning fredag
+                      </a>
+                    </li>
+                    <li onClick={toggleDropdown}>
+                      <a className="text-2xl text-white" href="#location">
+                        Om området
+                      </a>
+                    </li>
+                    <li onClick={toggleDropdown}>
+                      <a
+                        className="text-2xl text-white"
+                        href="#wedding-ceremony"
+                      >
+                        Vigsel i Jonsered
+                      </a>
+                    </li>
+                    <li onClick={toggleDropdown}>
+                      <a className="text-2xl text-white" href="#party">
+                        Middag och fest
+                      </a>
+                    </li>
+                    <li onClick={toggleDropdown}>
+                      <a className="text-2xl text-white" href="#speaches">
+                        Tal
+                      </a>
+                    </li>
+                    <li onClick={toggleDropdown}>
+                      <a className="text-2xl text-white" href="#dresscode">
+                        Klädkod
+                      </a>
+                    </li>
+                  </ul>
+                </details>
+              </li>
+            </ul>
           )}
         </nav>
       </header>

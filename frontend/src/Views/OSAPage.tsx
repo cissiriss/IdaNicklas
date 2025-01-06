@@ -1,6 +1,6 @@
 import { useState } from "react";
 import OsaForm from "../components/OsaForm";
-import MailTest from "../components/MailTest";
+
 type Guest = {
   nr: number;
 };
@@ -15,11 +15,6 @@ export const OSAPage = () => {
 
   return (
     <>
-      <div className="osa-container">
-        <h1>OSA</h1>
-        <h4>OSA i formuläret nedan senast 23/2</h4>
-        <h5>Välj antalet personer som du vill lämna svar för</h5>
-      </div>
       <div className="button-container">
         {guestnr.map((guest) => (
           <input
@@ -37,9 +32,6 @@ export const OSAPage = () => {
           <OsaForm />
         </div>
       ))}
-      <div>
-        <MailTest />
-      </div>
     </>
   );
 };

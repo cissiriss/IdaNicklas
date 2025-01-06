@@ -29,12 +29,16 @@ export const CountDown: React.FC<CountdownProps> = ({ targetDate }) => {
   };
 
   return (
-    <div>
-      {timeLeft > 0 ? (
-        <p>{formatTime(timeLeft)}</p>
-      ) : (
-        <p>Bröllopet har redan varit.. </p>
-      )}
+    <div className="container flex flex-col items-center justify-center bg-blue border border-gray-200 p-4 rounded">
+      <div>
+        {timeLeft > 0 ? (
+          <p className="text-2xl text-light font-bold">
+            {formatTime(timeLeft)}
+          </p>
+        ) : (
+          <p>Bröllopet har redan varit.. </p>
+        )}
+      </div>
     </div>
   );
 };
