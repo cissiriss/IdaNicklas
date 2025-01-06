@@ -142,7 +142,7 @@ export const DropDown = () => {
                       className="btn btn-circle self-end"
                       onClick={toggleDropdown}
                     >
-                      <svg
+                      {/* <svg
                         xmlns="http://www.w3.org/2000/svg"
                         className="h-6 w-6"
                         fill="none"
@@ -155,7 +155,7 @@ export const DropDown = () => {
                           strokeWidth="2"
                           d="M6 18L18 6M6 6l12 12"
                         />
-                      </svg>
+                      </svg> */}
                     </button>
                   </div>
                 </details>
