@@ -1,4 +1,4 @@
-import bild2 from "../assets/bild2.jpg";
+import bild2 from "../assets/Bild2.jpg";
 import Directions from "./Directions";
 import HotelPage from "./HotelPage";
 import { OSAPage } from "./OSAPage";
