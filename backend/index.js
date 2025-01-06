@@ -1,8 +1,9 @@
-const { Client } = require("pg");
-const express = require("express");
-const cors = require("cors");
-const dotenv = require("dotenv");
-const nodemailer = require("nodemailer");
+const { Client } = require("pg"),
+  express = require("express"),
+  cors = require("cors"),
+  dotenv = require("dotenv"),
+  nodemailer = require("nodemailer"),
+  path = require("path");
 
 dotenv.config();
 
