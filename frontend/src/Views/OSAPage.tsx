@@ -1,37 +1,45 @@
 import { useState } from "react";
 import OsaForm from "../components/OsaForm";
-
-type Guest = {
-  nr: number;
-};
+import { useFieldArray } from "react-hook-form";
 
 export const OSAPage = () => {
-  const guestnr: Guest[] = [{ nr: 1 }, { nr: 2 }, { nr: 3 }];
-  const [nrOfGuests, setNumberOfGuests] = useState<number>(0);
+  let index = 1;
 
-  const handleGuestSelection = (numberOfGuests: number) => {
-    setNumberOfGuests(numberOfGuests);
+  const [isDisabled, setIsDisabled] = useState(false);
+
+  const { fields, append } = useFieldArray({
+    name: "guests",
+  });
+
+  const handleClick = () => {
+    append({
+      name: "",
+    });
+    if (index === 2) {
+      setIsDisabled(true);
+    }
   };
 
   return (
     <>
-      <div className="button-container">
-        {guestnr.map((guest) => (
-          <input
-            className="osa-button"
-            type="button"
-            key={guest.nr}
-            value={guest.nr}
-            onClick={() => handleGuestSelection(guest.nr)}
-          />
-        ))}
+      <div>
+        <OsaForm />
       </div>
-      {Array.from({ length: nrOfGuests }, (_, index) => (
-        <div key={index} className="osa-form">
-          <p key={index}>Person {index + 1}</p>
+      {fields.map((person) => (
+        <div key={person.id}>
+          <p>Person {index++}</p>
           <OsaForm />
         </div>
       ))}
+      <div className="button-container">
+        <input
+          className="btn"
+          disabled={isDisabled}
+          type="button"
+          onClick={handleClick}
+          value="OSA för 1 till person"
+        />
+      </div>
     </>
   );
 };
