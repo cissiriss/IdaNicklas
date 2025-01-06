@@ -1,4 +1,4 @@
-import bild3 from "../assets/bild3.jpg";
+import bild3 from "../assets/Bild3.jpg";
 
 export default function HotelPage() {
   return (
