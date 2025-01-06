@@ -67,6 +67,8 @@ app.post("/api/submit", async (req, res) => {
 //   res.status(200).json({ message: "Data received successfully" });
 // });
 
+app.use(express.static(path.join(path.resolve(), "dist")));
+
 const port = process.env.PORT || 3000;
 
 app.listen(port, () => {
