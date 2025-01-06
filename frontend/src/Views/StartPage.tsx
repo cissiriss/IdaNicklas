@@ -1,4 +1,4 @@
-import bild1 from "../assets/bild1.jpg";
+import bild1 from "../assets/Bild1.jpg";
 import { CountDown } from "../components/CountDown";
 
 export const StartPage = () => {
