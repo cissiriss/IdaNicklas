@@ -15,6 +15,7 @@ export const OSAPage = () => {
     append({
       name: "",
     });
+    index++;
     if (index === 2) {
       setIsDisabled(true);
     }
