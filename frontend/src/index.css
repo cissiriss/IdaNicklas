@@ -2,10 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
-img {
+/* img {
   width: 650px;
   border-radius: 8px;
-}
+} */
 
 .dropdown-container {
   position: absolute;
@@ -22,21 +22,21 @@ img {
   justify-content: center;
 }
 
-.header {
+/* .header {
   font-family: "Alumni Sans Pinstripe", serif;
   font-size: 90px;
-  color: #52677d;
+  color: #102b4a;
   margin: 0;
   padding-left: 10px;
-}
+} */
 
-#subheader {
-  color: rgb(16, 43, 74);
+/* #subheader {
+  color: #102b4a;
   font-family: "Alumni Sans Pinstripe", serif;
   font-size: 80px;
   font-weight: lighter;
   margin: 0;
-}
+} */
 
 #and {
   font-family: "WindSong";

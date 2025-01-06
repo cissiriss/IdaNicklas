@@ -2,7 +2,7 @@ import { MapComponent } from "../components/Map";
 
 export default function Directions() {
   return (
-    <div>
+    <div className="flex flex-col font-alumni">
       <p>
         Vigseln kommer att vara i Jonsereds trädgårdar och middagen/festen är i
         fabriksstråket Jonsered. Bil: Vi rekommenderar att parkera bilen vid

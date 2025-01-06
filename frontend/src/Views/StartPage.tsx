@@ -5,16 +5,24 @@ export const StartPage = () => {
   const targetDate = new Date("2025-06-28T14:59:59");
   return (
     <>
-      <div id="header-container">
-        <h1 className="header">Nicklas</h1>
-        <h1 id="and">&</h1>
-        <h1 className="header">Ida</h1>
+      <div className="header-container flex flex-row items-center justify-center">
+        <h1 className="text-blue font-bold text-[90px] sm:text-[120px] font-alumni">
+          Nicklas
+        </h1>
+        <h1 className="text-darkblue font-windsong pr-4 text-[90px] sm:text-[120px]">
+          &
+        </h1>
+        <h1 className="text-blue font-bold  pl-2 font-alumni text-[90px] sm:text-[120px]">
+          Ida
+        </h1>
       </div>
-      <h2 id="subheader">2025-06-28</h2>
+      <h2 className="text-darkblue font-bold text-4xl m-4 text-center font-alumni">
+        2025-06-28
+      </h2>
       <div className="welcome-text">
-        <img src={bild1} alt="couple" />
+        <img className="m-4 rounded w-[95%]" src={bild1} alt="couple" />
       </div>
-      <div className="welcome-text m-4">
+      <div className="m-4 text-lg font-alumni">
         <p>
           Välkommen till Ida och Nicklas bröllopssida! Här samlar vi all
           information som du behöver veta inför vår brölloppshelg. Du är en av
@@ -23,8 +31,10 @@ export const StartPage = () => {
         </p>
       </div>
 
-      <div className="flex flex-col items-center">
-        <h3>Tid kvar till bröllopet 🤵🏼👰🏼‍♀️ </h3>
+      <div className="flex flex-col items-center m-4 font-alumni">
+        <h3 className="text-darkblue text-2xl">
+          Tid kvar till bröllopet 🤵🏼👰🏼‍♀️{" "}
+        </h3>
         <CountDown targetDate={targetDate} />
       </div>
     </>
