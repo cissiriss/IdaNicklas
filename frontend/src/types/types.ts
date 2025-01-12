@@ -1,5 +1,6 @@
 import { z } from "zod";
-import { guestSchema } from "./schemas";
+import { formSchema, guestSchema } from "./schemas";
 
 export type GuestType = z.infer<typeof guestSchema>;
 
+export type FormType = z.infer<typeof formSchema>;
