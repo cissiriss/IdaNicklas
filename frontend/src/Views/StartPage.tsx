@@ -1,5 +1,6 @@
 import bild1 from "../assets/Bild1.jpg";
 import { CountDown } from "../components/CountDown";
+import { Image } from "../components/Image";
 
 export const StartPage = () => {
   const targetDate = new Date("2025-06-28T14:59:59");
@@ -20,11 +21,7 @@ export const StartPage = () => {
         2025-06-28
       </h2>
       <div className="flex justify-center">
-        <img
-          className="m-4 rounded w-[90%] sm:w-2/3 sm:ml-8"
-          src={bild1}
-          alt="couple"
-        />
+        <Image imageSource={bild1} altText="couple" />
       </div>
       <div className="m-4 sm:text-2xl font-alumni font-light md:text-center ">
         <p className="sm:ml-16 sm:mr-16 ">

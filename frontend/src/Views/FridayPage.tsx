@@ -1,4 +1,5 @@
 import bild4 from "../assets/Bild4.jpg";
+import { Image } from "../components/Image";
 
 export const FridayPage = () => {
   return (
@@ -15,11 +16,7 @@ export const FridayPage = () => {
           hotellvistelse eller ej. Vi har ingen klädkod för fredagens middag men
           brudparet kommer att ha skjorta/chinos och sommarklänning.
         </p>
-        <img
-          src={bild4}
-          alt="couple"
-          className="rounded w-[90%] mt-4 sm:w-2/3 sm:ml-8 sm:self-center"
-        />
+        <Image imageSource={bild4} altText="couple" />
       </div>
     </>
   );

@@ -1,4 +1,5 @@
 import bild3 from "../assets/Bild3.jpg";
+import { Image } from "../components/Image";
 
 export default function HotelPage() {
   return (
@@ -12,11 +13,7 @@ export default function HotelPage() {
         boka skyndsamt! Brudparet bor på hotellet fredag till söndag. Om du
         också kommer bo på hotellet ser vi fram emot att ses vid frukostbuffén.
       </p>
-      <img
-        src={bild3}
-        className="w-[90%] sm:w-2/3 sm:ml-8 self-center rounded mt-4"
-        alt="hotel"
-      />
+      <Image imageSource={bild3} altText="hotel" />
     </div>
   );
 }
