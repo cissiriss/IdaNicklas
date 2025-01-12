@@ -15,29 +15,29 @@ export default function ProgramPage() {
     <>
       <div className="flex flex-col sm:justify-center sm:text-center font-alumni font-light p-4">
         <h1 className="font-windsong text-5xl mb-8">Program</h1>
-        <div id="friday">
+        <div>
           <div className="flex flex-col sm:justify-center mb-8">
             <FridayMarkup />
             <Image imageSource={bild4} altText="couple" />
           </div>
         </div>
-        <div id="location" className="flex flex-col sm:justify-center">
+        <div className="flex flex-col sm:justify-center">
           <PlaceMarkup />
           <Image imageSource={bild5} altText="couple" />
         </div>
 
-        <div className="flex flex-col mt-8" id="wedding-ceremony">
+        <div className="flex flex-col mt-8">
           <CeremonyMarkup />
         </div>
-        <div id="party">
+        <div>
           <DinnerMarkup />
         </div>
 
-        <div className="flex flex-col mt-8" id="speaches">
+        <div className="flex flex-col mt-8">
           <SpeachMarkup />
         </div>
       </div>
-      <div id="dresscode" className="font-alumni font-light p-4 text-xl">
+      <div className="font-alumni font-light p-4 text-xl">
         <DressCodeMarkup />
       </div>
     </>

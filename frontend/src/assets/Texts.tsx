@@ -1,22 +1,27 @@
 export const DirectionsMarkup = () => (
-  <p>
-    Vigseln kommer att vara i Jonsereds trädgårdar och middagen/festen är i
-    fabriksstråket Jonsered. Bil: Vi rekommenderar att parkera bilen vid
-    Jonsereds fabriker för att sedan promenera till Jonsereds trädgårdar. Efter
-    vigseln kommer alla gäster gemensamt promenera till festlokalen.
-    <br />
-    Kollektivtrafik: Det tar 12 minuter från Göteborg central till Jonsered
-    station med tåget. Sedan är det ca 900m promenad till vigseln och ca 400m
-    från festlokalen.
-    <br />
-    Taxi: Adress till vigseln: William Gibsons väg 76, 433 76 Jonsered <br />
-    Adress till festlokalen: Fabriksstråket 36 & 40, 433 76 Jonsered
-  </p>
+  <>
+    <h2 id="map" className="font-windsong text-3xl mb-2 ">
+      Hitta hit
+    </h2>
+    <p>
+      Vigseln kommer att vara i Jonsereds trädgårdar och middagen/festen är i
+      fabriksstråket Jonsered. Bil: Vi rekommenderar att parkera bilen vid
+      Jonsereds fabriker för att sedan promenera till Jonsereds trädgårdar.
+      Efter vigseln kommer alla gäster gemensamt promenera till festlokalen.
+      <br />
+      Kollektivtrafik: Det tar 12 minuter från Göteborg central till Jonsered
+      station med tåget. Sedan är det ca 900m promenad till vigseln och ca 400m
+      från festlokalen.
+      <br />
+      Taxi: Adress till vigseln: William Gibsons väg 76, 433 76 Jonsered <br />
+      Adress till festlokalen: Fabriksstråket 36 & 40, 433 76 Jonsered
+    </p>
+  </>
 );
 
 export const FridayMarkup = () => (
   <>
-    <h2 className="font-windsong text-3xl mt-4 mb-2 sm:text-center">
+    <h2 id="friday" className="font-windsong text-3xl mt-4 mb-2 sm:text-center">
       Uppladdning Fredag
     </h2>
     <p className="sm:text-center text-xl sm:ml-8 sm:mr-8">
@@ -44,20 +49,27 @@ export const GiftMarkup = () => (
 );
 
 export const HotelMarkup = () => (
-  <p className="sm:text-center text-xl sm:ml-8 sm:mr-8">
-    Som du redan vet finns det ett hotell i direkt anslutning till festen. Vår
-    bröllopshelg är inte längre reserverad för enbart våra gäster. Om du inte
-    har bokat men skulle vilja göra det görs det via denna länk:
-    www.gibsonshotell.se/boka För kännedom: det finns 27 rum på hotellet, av
-    blandad storlek. Det innebär att om du önskar en specifik rumstyp bör du
-    boka skyndsamt! Brudparet bor på hotellet fredag till söndag. Om du också
-    kommer bo på hotellet ser vi fram emot att ses vid frukostbuffén.
-  </p>
+  <>
+    <h2 id="hotel" className="font-windsong text-3xl mb-2">
+      Hotell
+    </h2>
+    <p className="sm:text-center text-xl sm:ml-8 sm:mr-8">
+      Som du redan vet finns det ett hotell i direkt anslutning till festen. Vår
+      bröllopshelg är inte längre reserverad för enbart våra gäster. Om du inte
+      har bokat men skulle vilja göra det görs det via denna länk:
+      www.gibsonshotell.se/boka För kännedom: det finns 27 rum på hotellet, av
+      blandad storlek. Det innebär att om du önskar en specifik rumstyp bör du
+      boka skyndsamt! Brudparet bor på hotellet fredag till söndag. Om du också
+      kommer bo på hotellet ser vi fram emot att ses vid frukostbuffén.
+    </p>
+  </>
 );
 
 export const PlaceMarkup = () => (
   <>
-    <h2 className="font-windsong text-3xl mt-4 sm:text-center">Om området</h2>
+    <h2 id="location" className="font-windsong text-3xl mt-4 sm:text-center">
+      Om området
+    </h2>
     <p className="text-xl">
       Vårat bröllop kommer äga rum i Jonsered strax utanför Partille. När vi
       letade efter festlokal och stötte på fabriksområdet Jonsered blev vi
@@ -89,7 +101,9 @@ export const PlaceMarkup = () => (
 
 export const CeremonyMarkup = () => (
   <>
-    <h2 className="font-windsong text-3xl mt-8">Vigsel i Jonsered</h2>
+    <h2 id="wedding-ceremony" className="font-windsong text-3xl mt-8">
+      Vigsel i Jonsered
+    </h2>
     <p className="mb-8 text-xl">
       Vigseln startar 15.00 vid herrgårdsscenen i Jonsereds trädgårdar.
     </p>
@@ -98,7 +112,9 @@ export const CeremonyMarkup = () => (
 
 export const DinnerMarkup = () => (
   <>
-    <h2 className="font-windsong text-3xl mt-8">Middag och Fest</h2>
+    <h2 id="party" className="font-windsong text-3xl mt-8">
+      Middag och Fest
+    </h2>
     <p className="text-xl">
       Barn är fantastiska men hör inte hemma på vårat bröllop, med undantag för
       de som ammar (och Tage).
@@ -108,7 +124,9 @@ export const DinnerMarkup = () => (
 
 export const SpeachMarkup = () => (
   <>
-    <h2 className="font-windsong text-3xl">Tal</h2>
+    <h2 id="speaches" className="font-windsong text-3xl">
+      Tal
+    </h2>
     <p className="text-xl">
       Önskar du att hålla tal? Skicka in din anmälan här så planerar våra
       toastmastrar in ditt framträdande i kvällens schema. Vi vill ha er anmälan
@@ -119,7 +137,9 @@ export const SpeachMarkup = () => (
 
 export const DressCodeMarkup = () => (
   <>
-    <h2 className="text-3xl mt-8 font-windsong sm:text-center">Klädkod</h2>
+    <h2 id="dresscode" className="text-3xl mt-8 font-windsong sm:text-center">
+      Klädkod
+    </h2>
     <p className="sm:text-center text-xl">
       Klädkoden för vårat bröllop är kavaj.
     </p>
@@ -172,7 +192,9 @@ export const WelcomeMarkup = () => (
 
 export const OSAMarkup = () => (
   <>
-    <h2 className="font-windsong text-3xl mb-2">OSA</h2>
+    <h2 id="osa" className="font-windsong text-3xl mb-2">
+      OSA
+    </h2>
     <p>
       OSA i formuläret nedan. Vi vill ha ditt svar oavsett om du kan komma eller
       inte. När du fyller i formuläret kommer flera alternativ att komma

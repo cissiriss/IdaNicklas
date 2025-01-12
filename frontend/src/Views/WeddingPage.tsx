@@ -8,28 +8,23 @@ import { HotelMarkup } from "../assets/Texts";
 import { MapComponent } from "../components/Map";
 export const WeddingPage = () => {
   return (
-    <div
-      className="flex flex-col w-full sm:text-center sm:justify-center font-alumni font-light text-darkblue text-xl p-4"
-      id="wedding"
-    >
-      <h1 className="font-windsong text-5xl sm:ml-8 text-center mb-8">
+    <div className="flex flex-col w-full sm:text-center sm:justify-center font-alumni font-light text-darkblue text-xl p-4">
+      <h1
+        id="wedding"
+        className="font-windsong text-5xl sm:ml-8 text-center mb-8"
+      >
         Bröllopet
       </h1>
       <Image imageSource={bild2} altText="couple by the lake" />
-      <div id="osa" className="mb-8">
+      <div className="mb-8">
         <OSAMarkup />
         <OSAPage />
       </div>
-      <div id="hotel" className="flex flex-col mb-8">
-        <h2 className="font-windsong text-3xl mb-2">Hotell</h2>
-        <div className="flex flex-col w-full">
-          <HotelMarkup />
-          <Image imageSource={bild3} altText="hotel" />
-        </div>
+      <div className="flex flex-col mb-8">
+        <HotelMarkup />
+        <Image imageSource={bild3} altText="hotel" />
       </div>
-      <div id="directions" className="mb-8">
-        <h2 className="font-windsong text-3xl mb-2 ">Hitta hit</h2>
-
+      <div className="mb-8">
         <div className="flex flex-col font-alumni">
           <DirectionsMarkup />
           <MapComponent />
