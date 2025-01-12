@@ -25,11 +25,17 @@ export default function ProgramPage() {
           <PlaceMarkup />
           <Image imageSource={bild5} altText="couple" />
         </div>
-        <CeremonyMarkup />
+
+        <div className="flex flex-col mt-8" id="wedding-ceremony">
+          <CeremonyMarkup />
+        </div>
         <div id="party">
           <DinnerMarkup />
         </div>
-        <SpeachMarkup />
+
+        <div className="flex flex-col mt-8" id="speaches">
+          <SpeachMarkup />
+        </div>
       </div>
       <div id="dresscode" className="font-alumni font-light p-4 text-xl">
         <DressCodeMarkup />

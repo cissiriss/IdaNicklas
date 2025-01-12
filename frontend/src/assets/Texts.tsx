@@ -88,12 +88,12 @@ export const PlaceMarkup = () => (
 );
 
 export const CeremonyMarkup = () => (
-  <div className="flex flex-col" id="wedding-ceremony">
+  <>
     <h2 className="font-windsong text-3xl mt-8">Vigsel i Jonsered</h2>
     <p className="mb-8 text-xl">
       Vigseln startar 15.00 vid herrgårdsscenen i Jonsereds trädgårdar.
     </p>
-  </div>
+  </>
 );
 
 export const DinnerMarkup = () => (
@@ -107,14 +107,14 @@ export const DinnerMarkup = () => (
 );
 
 export const SpeachMarkup = () => (
-  <div className="flex flex-col mt-8" id="speaches">
+  <>
     <h2 className="font-windsong text-3xl">Tal</h2>
     <p className="text-xl">
       Önskar du att hålla tal? Skicka in din anmälan här så planerar våra
       toastmastrar in ditt framträdande i kvällens schema. Vi vill ha er anmälan
       senast 1/3-2025.
     </p>
-  </div>
+  </>
 );
 
 export const DressCodeMarkup = () => (
