@@ -2,13 +2,15 @@ import { useEffect, useRef, useState } from "react";
 
 export const DropDown = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const dropdownRef = useRef<HTMLDivElement>(null);
+  const dropdownRef = useRef<HTMLUListElement>(null);
 
   const toggleDropdown = () => {
     setIsOpen((prevIsOpen) => !prevIsOpen);
   };
 
   const handleClickOutside = (event: MouseEvent) => {
+    console.log("outside");
+
     if (
       dropdownRef.current &&
       !dropdownRef.current.contains(event.target as Node)
@@ -35,7 +37,10 @@ export const DropDown = () => {
             hidden={isOpen}
           />
           {isOpen && (
-            <ul className="dropdown-container menu bg-blue rounded-box w-full">
+            <ul
+              ref={dropdownRef}
+              className="dropdown-container menu bg-blue rounded-box w-full"
+            >
               <button
                 className="btn absolute m-4 top-0 right-0"
                 onClick={toggleDropdown}
