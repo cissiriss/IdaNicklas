@@ -104,7 +104,7 @@ export const CeremonyMarkup = () => (
     <h2 id="wedding-ceremony" className="font-windsong text-3xl mt-8">
       Vigsel i Jonsered
     </h2>
-    <p className="mb-8 text-xl">
+    <p className="text-xl">
       Vigseln startar 15.00 vid herrgårdsscenen i Jonsereds trädgårdar.
     </p>
   </>
@@ -124,7 +124,7 @@ export const DinnerMarkup = () => (
 
 export const SpeachMarkup = () => (
   <>
-    <h2 id="speaches" className="font-windsong text-3xl">
+    <h2 id="speaches" className="font-windsong text-3xl mt-8">
       Tal
     </h2>
     <p className="text-xl">
@@ -137,7 +137,7 @@ export const SpeachMarkup = () => (
 
 export const DressCodeMarkup = () => (
   <>
-    <h2 id="dresscode" className="text-3xl mt-8 font-windsong sm:text-center">
+    <h2 id="dresscode" className="text-3xl font-windsong sm:text-center">
       Klädkod
     </h2>
     <p className="sm:text-center text-xl">
