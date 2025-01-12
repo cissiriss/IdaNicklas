@@ -3,11 +3,11 @@ export const DirectionsMarkup = () => (
     <h2 id="map" className="font-windsong text-3xl mb-2 ">
       Hitta hit
     </h2>
-    <p>
+    <p className="font-alumni">
       Vigseln kommer att vara i Jonsereds trädgårdar och middagen/festen är i
       fabriksstråket Jonsered. Bil: Vi rekommenderar att parkera bilen vid
       Jonsereds fabriker för att sedan promenera till Jonsereds trädgårdar.
-      Efter vigseln kommer alla gäster gemensamt promenera till festlokalen.
+      Efter vigseln kommer alla gäster gemensa promenera till festlokalen.
       <br />
       Kollektivtrafik: Det tar 12 minuter från Göteborg central till Jonsered
       station med tåget. Sedan är det ca 900m promenad till vigseln och ca 400m
@@ -21,7 +21,7 @@ export const DirectionsMarkup = () => (
 
 export const FridayMarkup = () => (
   <>
-    <h2 id="friday" className="font-windsong text-3xl mt-4 mb-2 sm:text-center">
+    <h2 id="friday" className="font-windsong text-3xl mb-2 sm:text-center">
       Uppladdning Fredag
     </h2>
     <p className="sm:text-center text-xl sm:ml-8 sm:mr-8">
@@ -37,7 +37,9 @@ export const FridayMarkup = () => (
 
 export const GiftMarkup = () => (
   <>
-    <h2 className="font-windsong font-medium text-3xl mb-8">Gåvor</h2>
+    <h2 id="gifts" className="font-windsong font-medium text-3xl">
+      Gåvor
+    </h2>
     <p className="text-xl font-light">
       Om ni vill ge oss bröllopspresent tar vi tacksamt emot bidrag till vårt
       framtida husköp.
@@ -67,7 +69,7 @@ export const HotelMarkup = () => (
 
 export const PlaceMarkup = () => (
   <>
-    <h2 id="location" className="font-windsong text-3xl mt-4 sm:text-center">
+    <h2 id="location" className="font-windsong text-3xl sm:text-center">
       Om området
     </h2>
     <p className="text-xl">
@@ -101,7 +103,7 @@ export const PlaceMarkup = () => (
 
 export const CeremonyMarkup = () => (
   <>
-    <h2 id="wedding-ceremony" className="font-windsong text-3xl mt-8">
+    <h2 id="wedding-ceremony" className="font-windsong text-3xl">
       Vigsel i Jonsered
     </h2>
     <p className="text-xl">
@@ -112,7 +114,7 @@ export const CeremonyMarkup = () => (
 
 export const DinnerMarkup = () => (
   <>
-    <h2 id="party" className="font-windsong text-3xl mt-8">
+    <h2 id="party" className="font-windsong text-3xl">
       Middag och Fest
     </h2>
     <p className="text-xl">
@@ -124,7 +126,7 @@ export const DinnerMarkup = () => (
 
 export const SpeachMarkup = () => (
   <>
-    <h2 id="speaches" className="font-windsong text-3xl mt-8">
+    <h2 id="speaches" className="font-windsong text-3xl">
       Tal
     </h2>
     <p className="text-xl">
@@ -192,7 +194,7 @@ export const WelcomeMarkup = () => (
 
 export const OSAMarkup = () => (
   <>
-    <h2 id="osa" className="font-windsong text-3xl mb-2">
+    <h2 id="osa" className="font-windsong text-3xl">
       OSA
     </h2>
     <p>

@@ -16,7 +16,7 @@ export default function ProgramPage() {
   return (
     <>
       <div className="flex flex-col sm:justify-center sm:text-center font-alumni font-light p-4">
-        <h1 className="font-windsong text-5xl mb-8">Program</h1>
+        <h1 className="font-windsong text-5xl">Program</h1>
         <SectionContainer>
           <FridayMarkup />
           <Image imageSource={bild4} altText="couple" />
@@ -27,7 +27,11 @@ export default function ProgramPage() {
         </SectionContainer>
         <SectionContainer>
           <CeremonyMarkup />
+        </SectionContainer>
+        <SectionContainer>
           <DinnerMarkup />
+        </SectionContainer>
+        <SectionContainer>
           <SpeachMarkup />
         </SectionContainer>
       </div>

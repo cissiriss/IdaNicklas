@@ -18,18 +18,18 @@ export const StartPage = () => {
           Ida
         </h1>
       </div>
-      <h2 className="text-darkblue font-bold text-4xl m-4 text-center font-alumnip ">
+      <h2 className="text-darkblue font-bold text-4xl mb-4 text-center font-alumnip ">
         2025-06-28
       </h2>
       <div className="flex justify-center">
         <Image imageSource={bild1} altText="couple" />
       </div>
-      <div className="m-4 sm:text-2xl font-alumni font-light md:text-center ">
+      <div className="sm:text-2xl font-alumni font-light md:text-center ">
         <WelcomeMarkup />
       </div>
 
-      <div className="flex flex-col items-center m-4 font-alumn font-light mt-8 mb-8">
-        <h3 className="text-darkblue font-windsong text-2xl mb-4">
+      <div className="flex flex-col items-center m-4 font-alumn font-light">
+        <h3 className="text-darkblue font-windsong text-2xl">
           Tid kvar till bröllopet 🤵🏼👰🏼‍♀️
         </h3>
         <CountDown targetDate={targetDate} />
