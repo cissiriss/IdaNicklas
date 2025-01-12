@@ -4,14 +4,14 @@ import bild6 from "../assets/Bild6.jpg";
 
 export default function ProgramPage() {
   return (
-    <div className="container flex flex-col items-center ">
-      <h1>Program</h1>
+    <div className="container font-alumni flex flex-col p-4">
+      <h1 className="font-windsong text-4xl">Program</h1>
       <div id="friday">
-        <h2>Uppladdning Fredag</h2>
+        <h2 className="font-windsong text-2xl mt-4">Uppladdning Fredag</h2>
         <FridayPage />
       </div>
-      <div className="flex flex-col items-center max-w-2xl" id="location">
-        <h2>Om området</h2>
+      <div className="flex flex-col max-w-2xl" id="location">
+        <h2 className="font-windsong text-2xl mt-4">Om området</h2>
         <p>
           Vårat bröllop kommer äga rum i Jonsered strax utanför Partille. När vi
           letade efter festlokal och stötte på fabriksområdet Jonsered blev vi
@@ -34,37 +34,36 @@ export default function ProgramPage() {
         </p>
         <img src={bild5} alt="couple" />
       </div>
-      <div
-        className="flex flex-col items-center max-w-2xl"
-        id="wedding-ceremony"
-      >
-        <h2>Vigsel i Jonsered</h2>
-        <p>Vigseln startar 15.00 vid herrgårdsscenen i Jonsereds trädgårdar.</p>
+      <div className="flex flex-col max-w-2xl" id="wedding-ceremony">
+        <h2 className="font-windsong text-2xl mt-8">Vigsel i Jonsered</h2>
+        <p className="mb-8">
+          Vigseln startar 15.00 vid herrgårdsscenen i Jonsereds trädgårdar.
+        </p>
         <img src={bild6} alt="couple" />
       </div>
       <div>
-        <h2>Middag och Fest</h2>
+        <h2 className="font-windsong text-2xl mt-8">Middag och Fest</h2>
         <p>
           Barn är fantastiska men hör inte hemma på vårat bröllop, med undantag
           för de som ammar (och Tage).
         </p>
       </div>
-      <div className="flex flex-col items-center max-w-2xl" id="speaches">
-        <h2>Tal</h2>
+      <div className="flex flex-col max-w-2xl mt-8" id="speaches">
+        <h2 className="font-windsong text-2xl">Tal</h2>
         <p>
           Önskar du att hålla tal? Skicka in din anmälan här så planerar våra
           toastmastrar in ditt framträdande i kvällens schema. Vi vill ha er
           anmälan senast 1/3-2025.
         </p>
       </div>
-      <div className=" max-w-2xl" id="dresscode">
-        <h2>Klädkod</h2>
+      <div className="max-w-2xl" id="dresscode">
+        <h2 className="text-2xl mt-8 font-windsong">Klädkod</h2>
         <p>Klädkoden för vårat bröllop är kavaj.</p>
-        <p>Exempel på passande kläder till klädkoden:</p>
-        <div className="mb-4">
-          Herr:
-          <br />
-          <ul className="list-disc">
+        <p className="mb-2">Exempel på passande kläder till klädkoden:</p>
+        <div className="mb-2">
+          <p className="text-xl"> Herr:</p>
+
+          <ul className="list-disc ml-6">
             <li>
               Kostym i valfri färg. Kavaj, byxa och eventuellt väst ska vara i
               samma tyg och färg.
@@ -79,16 +78,15 @@ export default function ProgramPage() {
           </ul>
         </div>
         <div>
-          Dam:
-          <br />
-          <ul className="list-disc">
+          <p className="text-xl"> Dam:</p>
+
+          <ul className="list-disc ml-6 mb-8">
             <li>
               Klänning, kjol eller byxdress. Det ska vara elegant men inte lika
               uppklätt som en mörk aftonklädsel. Klänning eller kjol ska minst
               gå ned till knäna, men inte vara golvlång.{" "}
             </li>
             <li>
-              {" "}
               För skor passar finare skor än vad du brukar bära till vardags.
               Exempelvis klackskor eller ballerinaskor. (Efter middagen kan ni
               sadla om till mer dansvänliga skor)

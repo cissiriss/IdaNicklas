@@ -63,99 +63,97 @@ export default function OsaForm() {
   return (
     <>
       <form onSubmit={handleSubmit(onSubmit)}>
-        <div className="form-container">
+        <div className="form-container font-alumnibold">
           <fieldset>
-            <label>
-              Jag kommer på bröllopet
-              <input
-                onClick={() => setValue("attendingWedding", true)}
-                type="radio"
-                name="attendingWedding"
-                className="radio"
-                defaultChecked
-              />
-              Självklart!
-              <input
-                type="radio"
-                name="attendingWedding"
-                className="radio"
-                onClick={() => setValue("attendingWedding", false)}
-              />
-              Tyvärr inte..
-            </label>
+            <div className="mt-4 form-control max-w-[200px]">
+              <h3 className="text-2xl"> Jag kommer på bröllopet:</h3>
+              <label className="label cursor-pointer">
+                {/* <div className="text-xl p-2">Självklart</div> */}
+                <input
+                  onClick={() => setValue("attendingWedding", true)}
+                  type="radio"
+                  name="attendingWedding"
+                  className="radio"
+                />
+                Självklart!
+                <input
+                  onClick={() => setValue("attendingWedding", false)}
+                  type="radio"
+                  name="attendingWedding"
+                  className="radio"
+                />
+                Tyvärr inte..
+              </label>
+            </div>
           </fieldset>
 
           {attendingWedding && (
             <>
               <fieldset>
-                <label>
-                  Jag kommer gärna kvällen innan fredagen 27/6
-                  <input
-                    type="radio"
-                    onChange={() => setValue("attendingDinner", true)}
-                    name="attendingDinner"
-                    className="radio"
-                  />
-                  {errors.attendingDinner && (
-                    <p>{errors.attendingDinner.message}</p>
-                  )}
-                  Självklart!
-                  <input
-                    onChange={() => setValue("attendingDinner", false)}
-                    type="radio"
-                    name="attendingDinner"
-                    className="radio"
-                  />
-                  Tyvärr inte..
-                </label>
+                <div className="font-alumnibold form-control max-w-[200px]">
+                  <h3 className="text-xl mt-4"> Jag kommer på fredagen:</h3>
+
+                  <label className="label cursor-pointer">
+                    <input
+                      type="radio"
+                      onChange={() => setValue("attendingDinner", true)}
+                      name="attendingDinner"
+                      className="radio"
+                    />
+                    {errors.attendingDinner && (
+                      <p>{errors.attendingDinner.message}</p>
+                    )}
+                    Självklart!
+                    <input
+                      onChange={() => setValue("attendingDinner", false)}
+                      type="radio"
+                      name="attendingDinner"
+                      className="radio"
+                    />
+                    Tyvärr inte..
+                  </label>
+                </div>
               </fieldset>
+              <div className="mt-4">
+                <input
+                  {...register("name")}
+                  type="text"
+                  placeholder="Förnamn"
+                  className="input input-bordered w-full max-w-xs mb-4"
+                />
 
-              <input
-                {...register("name")}
-                type="text"
-                placeholder="Förnamn"
-                className="input input-bordered w-full max-w-xs"
-              />
+                <input
+                  {...register("lastName")}
+                  type="text"
+                  placeholder="Efternamn"
+                  className="input input-bordered w-full max-w-xs mb-4"
+                />
 
-              <input
-                {...register("lastName")}
-                type="text"
-                placeholder="Efternamn"
-                className="input input-bordered w-full max-w-xs"
-              />
-
-              <label className="input input-bordered flex items-center gap-2">
-                {/* <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 16 16"
-                  fill="currentColor"
-                  className="h-4 w-4 opacity-70"
-                /> */}
                 <input
                   {...register("email")}
                   type="text"
-                  className="max-w-xs"
+                  className="input input-bordered w-full max-w-xs mb-4"
                   placeholder="Email"
                   required
                 />
-              </label>
 
-              <input
-                {...register("specialFood")}
-                type="text"
-                name="Specialkost"
-                placeholder="Specialkost"
-                className="input input-bordered w-full max-w-xs"
-              />
+                <input
+                  {...register("specialFood")}
+                  type="text"
+                  name="Specialkost"
+                  placeholder="Specialkost"
+                  className="input input-bordered w-full max-w-xs mb-4"
+                />
 
-              <p>Är det något annat brudparet bör känna till? </p>
-              <input
-                {...register("misc")}
-                type="text"
-                name="Övrigt"
-                placeholder="Övrigt"
-                className="input input-bordered w-full max-w-xs"
-              />
+                <p>Är det något annat brudparet bör känna till? </p>
+                <input
+                  {...register("misc")}
+                  type="text"
+                  name="Övrigt"
+                  placeholder="Övrigt"
+                  className="input input-bordered w-full max-w-xs mb-4"
+                />
+              </div>
             </>
           )}
         </div>
