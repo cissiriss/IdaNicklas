@@ -12,7 +12,7 @@ import {
 import { SectionContainer } from "../components/SectionContainer";
 import { DressCodeContainer } from "../components/DresscodeContainer";
 import { Heading } from "../components/Heading";
-import { HeadingEnum } from "../types/types";
+import { HeadingEnum } from "../types/enums";
 
 export default function ProgramPage() {
   return (
