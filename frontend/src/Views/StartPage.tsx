@@ -1,4 +1,5 @@
 import bild1 from "../assets/Bild1.jpg";
+import { WelcomeMarkup } from "../assets/Texts";
 import { CountDown } from "../components/CountDown";
 import { Image } from "../components/Image";
 
@@ -24,12 +25,7 @@ export const StartPage = () => {
         <Image imageSource={bild1} altText="couple" />
       </div>
       <div className="m-4 sm:text-2xl font-alumni font-light md:text-center ">
-        <p className="sm:ml-16 sm:mr-16 ">
-          Välkommen till Ida och Nicklas bröllopssida! Här samlar vi all
-          information som du behöver veta inför vår brölloppshelg. Du är en av
-          personerna som vi gärna vill dela vår stora dag med och vi hoppas att
-          du har möjlighet att medverka.
-        </p>
+        <WelcomeMarkup />
       </div>
 
       <div className="flex flex-col items-center m-4 font-alumn font-light mt-8 mb-8">
