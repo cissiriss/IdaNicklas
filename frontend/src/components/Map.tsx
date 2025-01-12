@@ -8,7 +8,7 @@ export const MapComponent = () => {
 
   return (
     <>
-      <div className="h-[400px]">
+      <div className="h-[400px] mt-4">
         <APIProvider apiKey="AIzaSyAFPt2am2wUzJ3TyQEcwcLvkqPUSS_PcOg">
           <Map defaultZoom={14} defaultCenter={location}>
             <Marker position={location} />

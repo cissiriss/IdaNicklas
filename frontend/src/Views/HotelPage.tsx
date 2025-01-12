@@ -2,8 +2,8 @@ import bild3 from "../assets/Bild3.jpg";
 
 export default function HotelPage() {
   return (
-    <div className="flex flex-col">
-      <p>
+    <div className="flex flex-col w-full">
+      <p className="sm:text-center text-xl sm:ml-8 sm:mr-8">
         Som du redan vet finns det ett hotell i direkt anslutning till festen.
         Vår bröllopshelg är inte längre reserverad för enbart våra gäster. Om du
         inte har bokat men skulle vilja göra det görs det via denna länk:
@@ -14,7 +14,7 @@ export default function HotelPage() {
       </p>
       <img
         src={bild3}
-        className="w-[90%] sm:w-2/3 sm:ml-8 self-center rounded"
+        className="w-[90%] sm:w-2/3 sm:ml-8 self-center rounded mt-4"
         alt="hotel"
       />
     </div>
