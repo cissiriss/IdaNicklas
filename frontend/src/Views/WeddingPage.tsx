@@ -11,7 +11,7 @@ import { Heading } from "../components/Heading";
 import { HeadingEnum } from "../types/types";
 export const WeddingPage = () => {
   return (
-    <div className="flex flex-col w-full sm:text-center sm:justify-center font-alumni font-light text-darkblue text-xl p-4">
+    <>
       <Heading type={HeadingEnum.section} id="wedding">
         Bröllopet
       </Heading>
@@ -43,6 +43,6 @@ export const WeddingPage = () => {
         </Heading>
         <GiftMarkup />
       </SectionContainer>
-    </div>
+    </>
   );
 };

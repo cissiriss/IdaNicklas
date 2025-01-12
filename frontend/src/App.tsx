@@ -4,23 +4,16 @@ import { DropDown } from "./components/DropDown";
 import { StartPage } from "./Views/StartPage";
 import { WeddingPage } from "./Views/WeddingPage";
 import ProgramPage from "./Views/ProgramPage";
+import { PageLayoutContainer } from "./components/PageLayoutContainer";
 
 function App() {
   return (
-    <>
-      <div>
-        <DropDown />
-      </div>
-      <div id="home">
-        <StartPage />
-      </div>
-      <div id="wedding">
-        <WeddingPage />
-      </div>
-      <div id="program">
-        <ProgramPage />
-      </div>
-    </>
+    <PageLayoutContainer>
+      <DropDown />
+      <StartPage />
+      <WeddingPage />
+      <ProgramPage />
+    </PageLayoutContainer>
   );
 }
 

@@ -17,43 +17,41 @@ import { HeadingEnum } from "../types/types";
 export default function ProgramPage() {
   return (
     <>
-      <div className="flex flex-col sm:justify-center sm:text-center font-alumni font-light p-4">
-        <Heading id="program" type={HeadingEnum.section}>
-          Program
+      <Heading id="program" type={HeadingEnum.section}>
+        Program
+      </Heading>
+      <SectionContainer>
+        <Heading type={HeadingEnum.subSection} id="friday">
+          Uppladdning Fredag
         </Heading>
-        <SectionContainer>
-          <Heading type={HeadingEnum.subSection} id="friday">
-            Uppladdning Fredag
-          </Heading>
-          <FridayMarkup />
-          <Image imageSource={bild4} altText="couple" />
-        </SectionContainer>
-        <SectionContainer>
-          <Heading type={HeadingEnum.subSection} id="location">
-            Om området
-          </Heading>
-          <PlaceMarkup />
-          <Image imageSource={bild5} altText="couple" />
-        </SectionContainer>
-        <SectionContainer>
-          <Heading type={HeadingEnum.subSection} id="wedding-ceremony">
-            Vigsel i Jonsered
-          </Heading>
-          <CeremonyMarkup />
-        </SectionContainer>
-        <SectionContainer>
-          <Heading type={HeadingEnum.subSection} id="party">
-            Middag och Fest
-          </Heading>
-          <DinnerMarkup />
-        </SectionContainer>
-        <SectionContainer>
-          <Heading type={HeadingEnum.subSection} id="speaches">
-            Tal
-          </Heading>
-          <SpeachMarkup />
-        </SectionContainer>
-      </div>
+        <FridayMarkup />
+        <Image imageSource={bild4} altText="couple" />
+      </SectionContainer>
+      <SectionContainer>
+        <Heading type={HeadingEnum.subSection} id="location">
+          Om området
+        </Heading>
+        <PlaceMarkup />
+        <Image imageSource={bild5} altText="couple" />
+      </SectionContainer>
+      <SectionContainer>
+        <Heading type={HeadingEnum.subSection} id="wedding-ceremony">
+          Vigsel i Jonsered
+        </Heading>
+        <CeremonyMarkup />
+      </SectionContainer>
+      <SectionContainer>
+        <Heading type={HeadingEnum.subSection} id="party">
+          Middag och Fest
+        </Heading>
+        <DinnerMarkup />
+      </SectionContainer>
+      <SectionContainer>
+        <Heading type={HeadingEnum.subSection} id="speaches">
+          Tal
+        </Heading>
+        <SpeachMarkup />
+      </SectionContainer>
       <DressCodeContainer>
         <Heading type={HeadingEnum.subSection} id="dresscode">
           Klädkod

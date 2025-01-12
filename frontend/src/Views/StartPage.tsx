@@ -7,7 +7,10 @@ export const StartPage = () => {
   const targetDate = new Date("2025-06-28T14:59:59");
   return (
     <>
-      <div className="flex flex-row items-center justify-center">
+      <div
+        id="home"
+        className="flex flex-row items-center justify-center mt-32"
+      >
         <h1 className="text-blue font-bold text-[90px] sm:text-[120px] font-alumnip ">
           Nicklas
         </h1>
@@ -18,12 +21,10 @@ export const StartPage = () => {
           Ida
         </h1>
       </div>
-      <h2 className="text-darkblue font-bold text-4xl mb-4 text-center font-alumnip ">
+      <h2 className="text-darkblue font-bold text-4xl mb-4 mt-6 text-center font-alumnip ">
         2025-06-28
       </h2>
-      <div className="flex justify-center">
-        <Image imageSource={bild1} altText="couple" />
-      </div>
+      <Image imageSource={bild1} altText="couple" />
       <div className="sm:text-2xl font-alumni font-light md:text-center ">
         <WelcomeMarkup />
       </div>

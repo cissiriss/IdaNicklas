@@ -26,7 +26,7 @@ export const DropDown = () => {
   return (
     <>
       <header>
-        <nav>
+        <nav className="fixed top-0 left-0 z-50">
           <input
             type="button"
             className="text-3xl bg-blue text-light rounded p-2 m-4 text-center font-alumni font-light"
