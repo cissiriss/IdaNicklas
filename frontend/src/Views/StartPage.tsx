@@ -1,11 +1,16 @@
 import bild1 from "../assets/Bild1.jpg";
+import { WelcomeMarkup } from "../assets/Texts";
 import { CountDown } from "../components/CountDown";
+import { Image } from "../components/Image";
 
 export const StartPage = () => {
   const targetDate = new Date("2025-06-28T14:59:59");
   return (
     <>
-      <div className="flex flex-row items-center justify-center">
+      <div
+        id="home"
+        className="flex flex-row items-center justify-center mt-32"
+      >
         <h1 className="text-blue font-bold text-[90px] sm:text-[120px] font-alumnip ">
           Nicklas
         </h1>
@@ -16,27 +21,16 @@ export const StartPage = () => {
           Ida
         </h1>
       </div>
-      <h2 className="text-darkblue font-bold text-4xl m-4 text-center font-alumnip ">
+      <h2 className="text-darkblue font-bold text-4xl mb-4 mt-6 text-center font-alumnip ">
         2025-06-28
       </h2>
-      <div className="flex justify-center">
-        <img
-          className="m-4 rounded w-[90%] sm:w-2/3 sm:ml-8"
-          src={bild1}
-          alt="couple"
-        />
-      </div>
-      <div className="m-4 sm:text-2xl font-alumni font-light md:text-center ">
-        <p className="sm:ml-16 sm:mr-16 ">
-          Välkommen till Ida och Nicklas bröllopssida! Här samlar vi all
-          information som du behöver veta inför vår brölloppshelg. Du är en av
-          personerna som vi gärna vill dela vår stora dag med och vi hoppas att
-          du har möjlighet att medverka.
-        </p>
+      <Image imageSource={bild1} altText="couple" />
+      <div className="sm:text-2xl font-alumni font-light md:text-center ">
+        <WelcomeMarkup />
       </div>
 
-      <div className="flex flex-col items-center m-4 font-alumn font-light mt-8 mb-8">
-        <h3 className="text-darkblue font-windsong text-2xl mb-4">
+      <div className="flex flex-col items-center m-4 font-alumn font-light">
+        <h3 className="text-darkblue font-windsong text-2xl">
           Tid kvar till bröllopet 🤵🏼👰🏼‍♀️
         </h3>
         <CountDown targetDate={targetDate} />
