@@ -2,7 +2,7 @@ import bild3 from "../assets/Bild3.jpg";
 
 export default function HotelPage() {
   return (
-    <div>
+    <div className="flex flex-col">
       <p>
         Som du redan vet finns det ett hotell i direkt anslutning till festen.
         Vår bröllopshelg är inte längre reserverad för enbart våra gäster. Om du
@@ -12,7 +12,11 @@ export default function HotelPage() {
         boka skyndsamt! Brudparet bor på hotellet fredag till söndag. Om du
         också kommer bo på hotellet ser vi fram emot att ses vid frukostbuffén.
       </p>
-      <img src={bild3} alt="couple" />
+      <img
+        src={bild3}
+        className="w-[90%] sm:w-2/3 sm:ml-8 self-center rounded"
+        alt="hotel"
+      />
     </div>
   );
 }

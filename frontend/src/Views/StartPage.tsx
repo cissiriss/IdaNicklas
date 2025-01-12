@@ -19,8 +19,12 @@ export const StartPage = () => {
       <h2 className="text-darkblue font-bold text-4xl m-4 text-center font-alumni">
         2025-06-28
       </h2>
-      <div className="welcome-text">
-        <img className="m-4 rounded w-[95%]" src={bild1} alt="couple" />
+      <div className="welcome-tex flex justify-center">
+        <img
+          className="m-4 rounded w-[90%] sm:w-2/3 sm:ml-8"
+          src={bild1}
+          alt="couple"
+        />
       </div>
       <div className="m-4 text-lg font-alumni">
         <p>
@@ -32,9 +36,7 @@ export const StartPage = () => {
       </div>
 
       <div className="flex flex-col items-center m-4 font-alumni">
-        <h3 className="text-darkblue text-2xl">
-          Tid kvar till bröllopet 🤵🏼👰🏼‍♀️{" "}
-        </h3>
+        <h3 className="text-darkblue text-2xl">Tid kvar till bröllopet 🤵🏼👰🏼‍♀️</h3>
         <CountDown targetDate={targetDate} />
       </div>
     </>

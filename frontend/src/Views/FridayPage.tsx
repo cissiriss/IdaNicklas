@@ -12,7 +12,11 @@ export const FridayPage = () => {
           hotellvistelse eller ej. Vi har ingen klädkod för fredagens middag men
           brudparet kommer att ha skjorta/chinos och sommarklänning.
         </p>
-        <img src={bild4} alt="couple" />
+        <img
+          src={bild4}
+          alt="couple"
+          className="rounded w-[90%] sm:w-2/3 sm:ml-8"
+        />
       </div>
     </>
   );

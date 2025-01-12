@@ -5,7 +5,7 @@ import bild6 from "../assets/Bild6.jpg";
 export default function ProgramPage() {
   return (
     <div className="container font-alumni flex flex-col p-4">
-      <h1 className="font-windsong text-4xl">Program</h1>
+      <h1 className="font-windsong text-5xl text-center mb-8">Program</h1>
       <div id="friday">
         <h2 className="font-windsong text-2xl mt-4">Uppladdning Fredag</h2>
         <FridayPage />
@@ -32,14 +32,22 @@ export default function ProgramPage() {
           Får du tid över mellan festligheterna rekommenderar vi varmt en
           promenad både i fabriksområdet och Jonsereds trädgårdar.
         </p>
-        <img src={bild5} alt="couple" />
+        <img
+          src={bild5}
+          alt="couple"
+          className="self-center rounded w-[90%] sm:w-2/3 sm:ml-8"
+        />
       </div>
       <div className="flex flex-col max-w-2xl" id="wedding-ceremony">
         <h2 className="font-windsong text-2xl mt-8">Vigsel i Jonsered</h2>
         <p className="mb-8">
           Vigseln startar 15.00 vid herrgårdsscenen i Jonsereds trädgårdar.
         </p>
-        <img src={bild6} alt="couple" />
+        <img
+          src={bild6}
+          alt="couple"
+          className="self-center rounded w-[90%] sm:w-2/3 sm:ml-8"
+        />
       </div>
       <div>
         <h2 className="font-windsong text-2xl mt-8">Middag och Fest</h2>

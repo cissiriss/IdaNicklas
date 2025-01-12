@@ -25,7 +25,7 @@ export const WeddingPage = () => {
           </p>
           <OSAPage />
         </div>
-        <div id="hotel">
+        <div id="hotel" className="flex flex-col max-w-2xl mb-8">
           <h2 className="font-windsong text-2xl mt-4">Hotell</h2>
           <HotelPage />
         </div>
@@ -34,7 +34,7 @@ export const WeddingPage = () => {
           <Directions />
         </div>
         <div className="flex flex-col max-w-2xl mt-8" id="gifts">
-          <h2 className="font-windsong text-2xl">Gåvor</h2>
+          <h2 className="font-windsong text-2xl mb-4">Gåvor</h2>
           <p>
             Om ni vill ge oss bröllopspresent tar vi tacksamt emot bidrag till
             vårt framtida husköp.
