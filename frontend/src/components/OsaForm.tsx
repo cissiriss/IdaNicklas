@@ -101,7 +101,9 @@ export default function OsaForm() {
                       className="radio"
                     />
                     {errors.attendingDinner && (
-                      <p>{errors.attendingDinner.message}</p>
+                      <p className="sm:text-center text-xl sm:ml-8 sm:mr-8">
+                        {errors.attendingDinner.message}
+                      </p>
                     )}
                     Självklart!
                     <input
@@ -145,7 +147,9 @@ export default function OsaForm() {
                   className="input input-bordered w-full max-w-xs mb-4"
                 />
 
-                <p>Är det något annat brudparet bör känna till? </p>
+                <p className="sm:text-center text-xl sm:ml-8 sm:mr-8">
+                  Är det något annat brudparet bör känna till?{" "}
+                </p>
                 <input
                   {...register("misc")}
                   type="text"

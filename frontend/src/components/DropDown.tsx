@@ -29,7 +29,7 @@ export const DropDown = () => {
         <nav>
           <input
             type="button"
-            className="text-3xl bg-blue text-light rounded p-2 m-4 text-center font-alumni font-bold"
+            className="text-3xl bg-blue text-light rounded p-2 m-4 text-center font-alumni font-light"
             value="Meny"
             onClick={toggleDropdown}
           />
@@ -37,13 +37,13 @@ export const DropDown = () => {
             <ul className="dropdown-container menu bg-blue rounded-box w-56">
               <li>
                 <details open>
-                  <summary className="text-3xl text-light font-alumni">
+                  <summary className="text-3xl text-light font-light font-alumni">
                     <a href="#wedding">Bröllopet</a>
                   </summary>
                   <ul>
                     <li onClick={toggleDropdown}>
                       <a
-                        className="text-2xl text-light font-alumni"
+                        className="text-2xl font-light text-light font-alumni"
                         href="#osa"
                       >
                         OSA
@@ -51,7 +51,7 @@ export const DropDown = () => {
                     </li>
                     <li onClick={toggleDropdown}>
                       <a
-                        className="text-2xl text-light font-alumni"
+                        className="text-2xl font-light text-light font-alumni"
                         href="#hotel"
                       >
                         Hotell
@@ -59,7 +59,7 @@ export const DropDown = () => {
                     </li>
                     <li onClick={toggleDropdown}>
                       <a
-                        className="text-2xl text-light font-alumni"
+                        className="text-2xl font-light text-light font-alumni"
                         href="#map"
                       >
                         Hita hit
@@ -67,7 +67,7 @@ export const DropDown = () => {
                     </li>
                     <li onClick={toggleDropdown}>
                       <a
-                        className="text-2xl text-light font-alumni"
+                        className="text-2xl font-light text-light font-alumni"
                         href="#songs"
                       >
                         Låtförslag
@@ -75,7 +75,7 @@ export const DropDown = () => {
                     </li>
                     <li onClick={toggleDropdown}>
                       <a
-                        className="text-2xl text-light font-alumni"
+                        className="text-2xl font-light text-light font-alumni"
                         href="#gifts"
                       >
                         Gåvor
@@ -84,13 +84,13 @@ export const DropDown = () => {
                   </ul>
                 </details>
                 <details open>
-                  <summary className="text-3xl text-light font-alumni">
+                  <summary className="text-3xl font-light text-light font-alumni">
                     Program
                   </summary>
                   <ul>
                     <li onClick={toggleDropdown}>
                       <a
-                        className="text-2xl text-light font-alumni"
+                        className="text-2xl font-light text-light font-alumni"
                         href="#friday"
                       >
                         Uppladdning fredag
@@ -98,7 +98,7 @@ export const DropDown = () => {
                     </li>
                     <li onClick={toggleDropdown}>
                       <a
-                        className="text-2xl text-light font-alumni"
+                        className="text-2xl font-light text-light font-alumni"
                         href="#location"
                       >
                         Om området
@@ -106,7 +106,7 @@ export const DropDown = () => {
                     </li>
                     <li onClick={toggleDropdown}>
                       <a
-                        className="text-2xl text-light font-alumni"
+                        className="text-2xl font-light text-light font-alumni"
                         href="#wedding-ceremony"
                       >
                         Vigsel i Jonsered
@@ -114,7 +114,7 @@ export const DropDown = () => {
                     </li>
                     <li onClick={toggleDropdown}>
                       <a
-                        className="text-2xl text-light font-alumni"
+                        className="text-2xl font-light text-light font-alumni"
                         href="#party"
                       >
                         Middag och fest
@@ -122,7 +122,7 @@ export const DropDown = () => {
                     </li>
                     <li onClick={toggleDropdown}>
                       <a
-                        className="text-2xl text-light font-alumni"
+                        className="text-2xl font-light text-light font-alumni"
                         href="#speaches"
                       >
                         Tal
@@ -130,7 +130,7 @@ export const DropDown = () => {
                     </li>
                     <li onClick={toggleDropdown}>
                       <a
-                        className="text-2xl text-light font-alumni"
+                        className="text-2xl font-light text-light font-alumni"
                         href="#dresscode"
                       >
                         Klädkod
@@ -142,7 +142,7 @@ export const DropDown = () => {
                       className="btn btn-circle self-end"
                       onClick={toggleDropdown}
                     >
-                      {/* <svg
+                      <svg
                         xmlns="http://www.w3.org/2000/svg"
                         className="h-6 w-6"
                         fill="none"
@@ -155,7 +155,7 @@ export const DropDown = () => {
                           strokeWidth="2"
                           d="M6 18L18 6M6 6l12 12"
                         />
-                      </svg> */}
+                      </svg>
                     </button>
                   </div>
                 </details>

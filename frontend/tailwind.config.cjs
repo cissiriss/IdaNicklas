@@ -3,11 +3,17 @@ module.exports = {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     fontFamily: {
-      alumni: ["Alumni Sans Pinstripe", "sans-serif"],
-      alumnibold: ["Alumni Sans", "sans-serif"],
+      alumni: ["Alumni Sans", "sans-serif"],
+      alumnip: ["Alumni Sans Pinstripe", "sans-serif"],
       arima: ["Arima", "sans-serif"],
       windsong: ["WindSong", "sans-serif"],
     },
+
+    fontWeight: {
+      medium: 500,
+      light: 300,
+    },
+
     extend: {
       colors: {
         light: "#fffafa",

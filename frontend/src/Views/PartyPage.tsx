@@ -7,15 +7,14 @@ export const PartyPage = () => {
       {/* <img id="party-image" src={image} alt="" /> */}
 
       <div>
-        <p>Efter bröllopet blir det middag och fest i Jonsereds fabriker! </p>
-        <p> Adress: Fabriksstråket 36, 433 76 Jonsered </p>
-        <p>
+        <p className="sm:text-center text-xl sm:ml-8 sm:mr-8">
+          Efter bröllopet blir det middag och fest i Jonsereds fabriker!
+          <br />
+          Adress: Fabriksstråket 36, 433 76 Jonsered
+          <br />
           Barn är tyvärr inte välkomna på varken vigsel eller middag. Undantag
           är barn som ammas.
         </p>
-        // TODO: egen sida för klädkod. // Låtönskningar. //datum för oSA och
-        låtönskningar. Ändra bra att veta till boende, och lägg till Uppladning
-        fredag. //Endast anmäla 2 åt gången.Bara en mail.
         <h5>Klädkod</h5>
         <p>Kavaj</p>
       </div>
