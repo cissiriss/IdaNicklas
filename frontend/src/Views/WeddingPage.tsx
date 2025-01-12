@@ -7,7 +7,7 @@ export const WeddingPage = () => {
   return (
     <>
       <div
-        className="flex flex-col font-alumni text-darkblue text-lg p-4"
+        className="flex flex-col font-alumnibold text-darkblue text-xl p-4"
         id="wedding"
       >
         <h1 className="font-windsong text-4xl sm:ml-8">Bröllopet</h1>

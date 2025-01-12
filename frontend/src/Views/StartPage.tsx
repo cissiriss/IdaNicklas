@@ -26,7 +26,7 @@ export const StartPage = () => {
           alt="couple"
         />
       </div>
-      <div className="m-4 text-lg font-alumni">
+      <div className="m-4 text-xl font-alumnibold">
         <p>
           Välkommen till Ida och Nicklas bröllopssida! Här samlar vi all
           information som du behöver veta inför vår brölloppshelg. Du är en av
