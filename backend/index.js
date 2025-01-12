@@ -11,6 +11,9 @@ const client = new Client({
   connectionString: process.env.PGURI,
 });
 
+const { formSchema } = require("../frontend/src/types/schemas");
+const { saveRsvp } = require("./submit.service");
+
 client.connect();
 
 const app = express();
@@ -22,42 +25,37 @@ app.use(cors());
 app.get("/api", async (_, response) => {
   const { rows } = await client.query(
     "SELECT * FROM RSVPs WHERE attending_wedding = $1",
-    [true]
+    [true],
   );
   response.send(rows);
 });
 
 app.post("/api/submit", async (req, res) => {
-  const email = req.body.email;
-  console.log(email);
-  const transporter = nodemailer.createTransport({
-    service: "gmail",
-    auth: {
-      user: process.env.GMAIL_USER,
-      pass: process.env.GMAIL_APP_PASSWORD,
-    },
-  });
+  // Validate the request body using safeParse
+  const result = formSchema.safeParse(req.body);
 
-  console.log(req, res);
-  if (!email) {
-    return res.status(400).send("E-postadress saknas");
+  if (!result.success) {
+    // Handle validation errors
+    return res.status(400).json({ errors: result.error.errors });
   }
 
+  // Destructure the validated data
+  const { guests } = result.data;
+
+  // Insert the data into the database
   try {
-    const mailOptions = {
-      from: process.env.GMAIL_USER,
-      to: email,
-      subject: "Bekräftelsemail",
-      html: `<h1>Hej!</h1><p>Tack för din anmälan. Vi bekräftar härmed din registrering.</p>`,
-    };
+    const dbResult = saveRsvp(guests);
+  } catch {
+    return res.status(500).json({ message: "Failed to save data" });
+  }
 
-    // Skicka mailet
-    await transporter.sendMail(mailOptions);
-
-    res.status(200).send("Bekräftelsemail har skickats");
-  } catch (error) {
-    console.error("Fel vid skickande av mail:", error);
-    res.status(500).send("Det gick inte att skicka bekräftelsemailet");
+  // Send a confirmation email
+  try {
+    const emails = guests.map((guest) => guest.email);
+    await sendEmails(emails);
+    return res.status(200).json({ message: "Data saved successfully}" });
+  } catch {
+    return res.status(500).json({ message: "Failed to send email" });
   }
 });
 
