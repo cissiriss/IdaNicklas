@@ -7,26 +7,40 @@ import { OSAPage } from "./OSAPage";
 import { HotelMarkup } from "../assets/Texts";
 import { MapComponent } from "../components/Map";
 import { SectionContainer } from "../components/SectionContainer";
+import { Heading } from "../components/Heading";
+import { HeadingEnum } from "../types/types";
 export const WeddingPage = () => {
   return (
     <div className="flex flex-col w-full sm:text-center sm:justify-center font-alumni font-light text-darkblue text-xl p-4">
-      <h1 id="wedding" className="font-windsong text-5xl sm:ml-8 text-center">
+      <Heading type={HeadingEnum.section} id="wedding">
         Bröllopet
-      </h1>
+      </Heading>
       <Image imageSource={bild2} altText="couple by the lake" />
       <SectionContainer>
+        <Heading type={HeadingEnum.subSection} id="osa">
+          OSA
+        </Heading>
         <OSAMarkup />
         <OSAPage />
       </SectionContainer>
       <SectionContainer>
+        <Heading type={HeadingEnum.subSection} id="hotel">
+          Hotell
+        </Heading>
         <HotelMarkup />
         <Image imageSource={bild3} altText="hotel" />
       </SectionContainer>
       <SectionContainer>
+        <Heading type={HeadingEnum.subSection} id="map">
+          Hitta hit
+        </Heading>
         <DirectionsMarkup />
         <MapComponent />
       </SectionContainer>
       <SectionContainer>
+        <Heading type={HeadingEnum.subSection} id="gifts">
+          Gåvor
+        </Heading>
         <GiftMarkup />
       </SectionContainer>
     </div>
