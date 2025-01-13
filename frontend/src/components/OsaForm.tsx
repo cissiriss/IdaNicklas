@@ -1,23 +1,40 @@
-import { SubmitHandler, useFormContext } from "react-hook-form";
-import { GuestType } from "../types/types";
-import IsNotComingForm from "./IsNotComingForm";
+import { SubmitHandler, useForm, useFieldArray } from "react-hook-form";
+import { formSchema } from "../types/schemas";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { FormType } from "../types/types";
 
 export default function OsaForm() {
   const {
     register,
     handleSubmit,
     formState: { errors },
-    setValue,
-    watch,
     reset,
-  } = useFormContext<GuestType>();
+    control,
+    watch,
+  } = useForm<FormType>({
+    resolver: zodResolver(formSchema),
+    defaultValues: {
+      guests: [
+        {
+          attendingWedding: "true",
+          attendingDinner: "true",
+          name: "",
+          lastName: "",
+          email: "",
+          specialFood: "",
+          misc: "",
+        },
+      ],
+    },
+  });
 
-  const attendingWedding = watch("attendingWedding");
-  console.log(attendingWedding);
+  const { fields, append, remove } = useFieldArray({
+    control,
+    name: "guests",
+  });
 
-  const email = watch("email");
-
-  const onSubmit: SubmitHandler<GuestType> = async (data) => {
+  const onSubmit: SubmitHandler<FormType> = async (data) => {
+    console.log({ data });
     try {
       await fetch("/api/submit", {
         method: "POST",
@@ -26,147 +43,169 @@ export default function OsaForm() {
         },
         body: JSON.stringify(data),
       });
-
-      if (email) {
-        alert("Bekräftelsemail har skickats");
-      }
     } catch (error) {
       console.log(error);
-      alert("Det gick inte att skicka bekräftelsemailet.");
     }
-    console.log(data);
-    console.log(errors);
     reset();
   };
 
-  // async function sendConfirmationEmail(email: string): Promise<void> {
-  //   try {
-  //     const response = await fetch("api/submit", {
-  //       method: "POST",
-  //       headers: {
-  //         "Content-Type": "application/json",
-  //       },
-  //       body: JSON.stringify({ email }),
-  //     });
-
-  //     if (!response.ok) {
-  //       const errorText = await response.text();
-  //       throw new Error(`Error: ${response.status} - ${errorText}`);
-  //     }
-  //     alert("Bekräftelsemail har skickats");
-  //   } catch (error) {
-  //     console.error("Fel vid skickande av bekräftelsemail:", error);
-  //     alert("Det gick inte att skicka bekräftelsemailet.");
-  //   }
-  // }
+  const guestsValues = watch("guests");
 
   return (
-    <>
-      <form onSubmit={handleSubmit(onSubmit)}>
-        <div className="form-container font-alumnibold">
-          <fieldset>
-            <div className="mt-4 form-control max-w-[200px]">
-              <h3 className="text-2xl"> Jag kommer på bröllopet:</h3>
-              <label className="label cursor-pointer">
-                {/* <div className="text-xl p-2">Självklart</div> */}
-                <input
-                  onClick={() => setValue("attendingWedding", true)}
-                  type="radio"
-                  name="attendingWedding"
-                  className="radio"
-                />
-                Självklart!
-                <input
-                  onClick={() => setValue("attendingWedding", false)}
-                  type="radio"
-                  name="attendingWedding"
-                  className="radio"
-                />
-                Tyvärr inte..
-              </label>
-            </div>
-          </fieldset>
+    <form
+      onSubmit={handleSubmit(onSubmit)}
+      className={`flex-col w-full max-w-xs mx-auto p-4 shadow-lg rounded-lg`}
+    >
+      {fields.map((field, index) => (
+        <fieldset key={field.id} className="mb-4">
+          <div className="mt-4 form-control max-w-[200px]">
+            <h3 className="text-2xl"> Jag kommer på bröllopet:</h3>
+            <label className="label cursor-pointer">
+              <input
+                {...register(`guests.${index}.attendingWedding`)}
+                type="radio"
+                value="true"
+                className="radio"
+              />
+              Självklart!
+              <input
+                {...register(`guests.${index}.attendingWedding`)}
+                type="radio"
+                value="false"
+                className="radio"
+              />
+              Tyvärr inte..
+            </label>
+          </div>
+          <div className="mt-4">
+            <input
+              {...register(`guests.${index}.name`)}
+              type="text"
+              placeholder="Förnamn"
+              className={`input input-bordered ${errors.guests?.[index]?.name ? "input-error text-error" : ""} w-full max-w-xs mb-4`}
+            />
+            {errors.guests?.[index]?.name && (
+              <p className="text-error">{errors.guests[index].name?.message}</p>
+            )}
+            <input
+              {...register(`guests.${index}.lastName`)}
+              type="text"
+              placeholder="Efternamn"
+              className={`input input-bordered ${errors.guests?.[index]?.lastName ? "input-error text-error" : ""} w-full max-w-xs mb-4`}
+              aria-errormessage="hello"
+            />
+            {errors.guests?.[index]?.lastName && (
+              <p className="text-error">
+                {errors.guests[index].lastName?.message}
+              </p>
+            )}
+            <input
+              {...register(`guests.${index}.email`)}
+              type="text"
+              placeholder="Email"
+              className={`input input-bordered ${errors.guests?.[index]?.email ? "input-error text-error" : ""} w-full max-w-xs mb-4`}
+            />
 
-          {attendingWedding && (
+            {errors.guests?.[index]?.email && (
+              <p className="text-error">
+                {errors.guests[index].email?.message}
+              </p>
+            )}
+          </div>
+
+          {/* Show additional fields if attendingWedding is true */}
+          {guestsValues?.[index]?.attendingWedding === "true" && (
             <>
-              <fieldset>
-                <div className="font-alumnibold form-control max-w-[200px]">
-                  <h3 className="text-xl mt-4"> Jag kommer på fredagen:</h3>
-
-                  <label className="label cursor-pointer">
-                    <input
-                      type="radio"
-                      onChange={() => setValue("attendingDinner", true)}
-                      name="attendingDinner"
-                      className="radio"
-                    />
-                    {errors.attendingDinner && (
-                      <p className="sm:text-center text-xl sm:ml-8 sm:mr-8">
-                        {errors.attendingDinner.message}
-                      </p>
-                    )}
-                    Självklart!
-                    <input
-                      onChange={() => setValue("attendingDinner", false)}
-                      type="radio"
-                      name="attendingDinner"
-                      className="radio"
-                    />
-                    Tyvärr inte..
-                  </label>
-                </div>
-              </fieldset>
               <div className="mt-4">
-                <input
-                  {...register("name")}
-                  type="text"
-                  placeholder="Förnamn"
-                  className="input input-bordered w-full max-w-xs mb-4"
-                />
+                <fieldset>
+                  <div className="font-alumnibold form-control max-w-[200px]">
+                    <h3 className="text-xl mt-4">
+                      Jag kommer på fredagens middag:
+                    </h3>
+                    <label className="label cursor-pointer">
+                      <input
+                        {...register(`guests.${index}.attendingDinner`)}
+                        type="radio"
+                        value="true"
+                        className="radio"
+                      />
+                      Självklart!
+                      <input
+                        {...register(`guests.${index}.attendingDinner`)}
+                        type="radio"
+                        value="false"
+                        className="radio"
+                      />
+                      Tyvärr inte..
+                    </label>
+                  </div>
+                </fieldset>
 
                 <input
-                  {...register("lastName")}
-                  type="text"
-                  placeholder="Efternamn"
-                  className="input input-bordered w-full max-w-xs mb-4"
-                />
-
-                <input
-                  {...register("email")}
-                  type="text"
-                  className="input input-bordered w-full max-w-xs mb-4"
-                  placeholder="Email"
-                  required
-                />
-
-                <input
-                  {...register("specialFood")}
+                  {...register(`guests.${index}.specialFood`)}
                   type="text"
                   name="Specialkost"
                   placeholder="Specialkost"
-                  className="input input-bordered w-full max-w-xs mb-4"
+                  className={`input input-bordered ${errors.guests?.[index]?.specialFood ? "input-error text-error" : ""} w-full max-w-xs mb-4`}
                 />
 
+                {errors.guests?.[index]?.specialFood && (
+                  <p className="text-error">
+                    {errors.guests[index].specialFood?.message}
+                  </p>
+                )}
                 <p className="sm:text-center text-xl sm:ml-8 sm:mr-8">
-                  Är det något annat brudparet bör känna till?{" "}
+                  Är det något annat brudparet bör känna till?
                 </p>
                 <input
-                  {...register("misc")}
+                  {...register(`guests.${index}.misc`)}
                   type="text"
                   name="Övrigt"
                   placeholder="Övrigt"
-                  className="input input-bordered w-full max-w-xs mb-4"
+                  className={`input input-bordered ${errors.guests?.[index]?.misc ? "input-error text-error" : ""} w-full max-w-xs mb-4`}
                 />
+                {errors.guests?.[index]?.misc && (
+                  <p className="text-error">
+                    {errors.guests[index].misc?.message}
+                  </p>
+                )}
               </div>
             </>
           )}
-        </div>
-        <div className="osa-form">
-          {!attendingWedding && <IsNotComingForm />}
-        </div>
+          <button
+            type="button"
+            onClick={() => remove(index)}
+            className="btn w-full hover:bg-red-300"
+            disabled={fields.length <= 1}
+          >
+            Ta bort gäst
+          </button>
+        </fieldset>
+      ))}
 
-        <button type="submit">Spara</button>
-      </form>
-    </>
+      <div className="flex flex-col">
+        <button
+          type="button"
+          onClick={() =>
+            append({
+              attendingWedding: "true",
+              attendingDinner: "true",
+              name: "",
+              lastName: "",
+              email: "",
+              specialFood: "",
+              misc: "",
+            })
+          }
+          className="btn"
+          disabled={fields.length >= 2}
+        >
+          Lägg till gäst
+        </button>
+        <button type="submit" className="btn mt-4 hover:bg-green-200">
+          Skicka OSA
+        </button>
+      </div>
+    </form>
   );
 }

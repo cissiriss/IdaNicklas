@@ -1,9 +1,6 @@
 import { z } from "zod";
-import { guestSchema } from "./schemas";
+import { formSchema, guestSchema } from "./schemas";
 
 export type GuestType = z.infer<typeof guestSchema>;
 
-export enum HeadingEnum {
-  section = "section",
-  subSection = "subSection",
-}
+export type FormType = z.infer<typeof formSchema>;

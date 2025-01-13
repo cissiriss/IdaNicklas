@@ -1,4 +1,4 @@
-import { HeadingEnum } from "../types/types";
+import { HeadingEnum } from "../types/enums";
 
 interface HeadingProps {
   children?: React.ReactNode;
