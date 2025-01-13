@@ -11,7 +11,7 @@ const client = new Client({
   connectionString: process.env.PGURI,
 });
 
-const { formSchema } = require("../frontend/src/types/schemas");
+const { formSchema } = require("../frontend/src/types/schemas.ts");
 const { saveRsvp } = require("./submit.service");
 
 client.connect();

@@ -54,12 +54,14 @@ export default function OsaForm() {
   return (
     <form
       onSubmit={handleSubmit(onSubmit)}
-      className={`flex-col w-full max-w-xs mx-auto p-4 shadow-lg rounded-lg`}
+      className={`flex-col w-full max-w-xs mt-8 mx-auto p-4 bg-gray-100 rounded-lg`}
     >
       {fields.map((field, index) => (
         <fieldset key={field.id} className="mb-4">
-          <div className="mt-4 form-control max-w-[200px]">
-            <h3 className="text-2xl"> Jag kommer på bröllopet:</h3>
+          {index > 0 && <hr className="border-gray-400 width-full mb-4 mt-4" />}
+          <div className="mt-4 form-control max-w-[250px]">
+            <p className="text-xl">Gäst {index + 1}</p>
+            <h3 className="text-xl mt-4"> Jag kommer på bröllopet:</h3>
             <label className="label cursor-pointer">
               <input
                 {...register(`guests.${index}.attendingWedding`)}
@@ -82,7 +84,9 @@ export default function OsaForm() {
               {...register(`guests.${index}.name`)}
               type="text"
               placeholder="Förnamn"
-              className={`input input-bordered ${errors.guests?.[index]?.name ? "input-error text-error" : ""} w-full max-w-xs mb-4`}
+              className={`input input-bordered ${
+                errors.guests?.[index]?.name ? "input-error text-error" : ""
+              } w-full max-w-xs mb-4`}
             />
             {errors.guests?.[index]?.name && (
               <p className="text-error">{errors.guests[index].name?.message}</p>
@@ -91,7 +95,9 @@ export default function OsaForm() {
               {...register(`guests.${index}.lastName`)}
               type="text"
               placeholder="Efternamn"
-              className={`input input-bordered ${errors.guests?.[index]?.lastName ? "input-error text-error" : ""} w-full max-w-xs mb-4`}
+              className={`input input-bordered ${
+                errors.guests?.[index]?.lastName ? "input-error text-error" : ""
+              } w-full max-w-xs mb-4`}
               aria-errormessage="hello"
             />
             {errors.guests?.[index]?.lastName && (
@@ -103,7 +109,9 @@ export default function OsaForm() {
               {...register(`guests.${index}.email`)}
               type="text"
               placeholder="Email"
-              className={`input input-bordered ${errors.guests?.[index]?.email ? "input-error text-error" : ""} w-full max-w-xs mb-4`}
+              className={`input input-bordered ${
+                errors.guests?.[index]?.email ? "input-error text-error" : ""
+              } w-full max-w-xs mb-4`}
             />
 
             {errors.guests?.[index]?.email && (
@@ -116,13 +124,11 @@ export default function OsaForm() {
           {/* Show additional fields if attendingWedding is true */}
           {guestsValues?.[index]?.attendingWedding === "true" && (
             <>
-              <div className="mt-4">
+              <div>
                 <fieldset>
-                  <div className="font-alumnibold form-control max-w-[200px]">
-                    <h3 className="text-xl mt-4">
-                      Jag kommer på fredagens middag:
-                    </h3>
-                    <label className="label cursor-pointer">
+                  <div className="font-alumnibold form-control max-w-[250px]">
+                    <h3 className="text-xl">Jag kommer på fredagens middag:</h3>
+                    <label className="label cursor-pointer mb-4">
                       <input
                         {...register(`guests.${index}.attendingDinner`)}
                         type="radio"
@@ -146,7 +152,11 @@ export default function OsaForm() {
                   type="text"
                   name="Specialkost"
                   placeholder="Specialkost"
-                  className={`input input-bordered ${errors.guests?.[index]?.specialFood ? "input-error text-error" : ""} w-full max-w-xs mb-4`}
+                  className={`input input-bordered ${
+                    errors.guests?.[index]?.specialFood
+                      ? "input-error text-error"
+                      : ""
+                  } w-full max-w-xs mb-4`}
                 />
 
                 {errors.guests?.[index]?.specialFood && (
@@ -162,7 +172,9 @@ export default function OsaForm() {
                   type="text"
                   name="Övrigt"
                   placeholder="Övrigt"
-                  className={`input input-bordered ${errors.guests?.[index]?.misc ? "input-error text-error" : ""} w-full max-w-xs mb-4`}
+                  className={`input input-bordered ${
+                    errors.guests?.[index]?.misc ? "input-error text-error" : ""
+                  } w-full max-w-xs mb-4`}
                 />
                 {errors.guests?.[index]?.misc && (
                   <p className="text-error">
@@ -175,7 +187,7 @@ export default function OsaForm() {
           <button
             type="button"
             onClick={() => remove(index)}
-            className="btn w-full hover:bg-red-300"
+            className="btn text-xl font-light w-full bg-blue hover:bg-darkblue text-white mt-4"
             disabled={fields.length <= 1}
           >
             Ta bort gäst
@@ -197,12 +209,15 @@ export default function OsaForm() {
               misc: "",
             })
           }
-          className="btn"
+          className="btn text-xl font-light w-full bg-blue text-white"
           disabled={fields.length >= 2}
         >
           Lägg till gäst
         </button>
-        <button type="submit" className="btn mt-4 hover:bg-green-200">
+        <button
+          type="submit"
+          className="btn text-xl font-light bg-blue text-white mt-4"
+        >
           Skicka OSA
         </button>
       </div>
