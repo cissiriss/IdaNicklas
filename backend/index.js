@@ -27,9 +27,9 @@ app.get("/api", async (_, response) => {
   response.send(rows);
 });
 
-app.post("/api/submit", async (req, res) => {
+app.post("/api/mail", async (req, res) => {
+  console.log(req.body);
   const email = req.body.email;
-  console.log(email);
   const transporter = nodemailer.createTransport({
     service: "gmail",
     auth: {
@@ -38,7 +38,6 @@ app.post("/api/submit", async (req, res) => {
     },
   });
 
-  console.log(req, res);
   if (!email) {
     return res.status(400).send("E-postadress saknas");
   }
@@ -51,22 +50,30 @@ app.post("/api/submit", async (req, res) => {
       html: `<h1>Hej!</h1><p>Tack för din anmälan. Vi bekräftar härmed din registrering.</p>`,
     };
 
-    // Skicka mailet
     await transporter.sendMail(mailOptions);
 
     res.status(200).send("Bekräftelsemail har skickats");
   } catch (error) {
     console.error("Fel vid skickande av mail:", error);
     res.status(500).send("Det gick inte att skicka bekräftelsemailet");
+  } finally {
+    const { inputData } = req.body;
+
+    const { rows } = await client.query(
+      "INSERT INTO RSVPs (name, last_name, email, attending_wedding, attending_dinner, special_food, misc) VALUES ($1, $2, $3, $4, $5, $6, $7)",
+      [
+        inputData.name,
+        inputData.lastName,
+        inputData.email,
+        inputData.attendingWedding,
+        inputData.attendingDinner,
+        inputData.specialFood,
+        inputData.misc,
+      ]
+    );
+    response.send(rows);
   }
 });
-
-// app.post("/api/submit", (req, res) => {
-//   const inputData = req.body;
-
-//   console.log("Received data:", inputData); // Log the received data instead of saving it to the database
-//   res.status(200).json({ message: "Data received successfully" });
-// });
 
 app.use(express.static(path.join(path.resolve(), "dist")));
 
