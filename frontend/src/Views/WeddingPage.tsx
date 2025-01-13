@@ -2,13 +2,13 @@ import bild2 from "../assets/Bild2.jpg";
 import bild3 from "../assets/Bild3.jpg";
 import { DirectionsMarkup, GiftMarkup, OSAMarkup } from "../assets/Texts";
 import { Image } from "../components/Image";
-import { OSAPage } from "./OSAPage";
 
 import { HotelMarkup } from "../assets/Texts";
 import { MapComponent } from "../components/Map";
 import { SectionContainer } from "../components/SectionContainer";
 import { Heading } from "../components/Heading";
-import { HeadingEnum } from "../types/types";
+import { HeadingEnum } from "../types/enums";
+import OsaForm from "../components/OsaForm";
 export const WeddingPage = () => {
   return (
     <>
@@ -21,7 +21,7 @@ export const WeddingPage = () => {
           OSA
         </Heading>
         <OSAMarkup />
-        <OSAPage />
+        <OsaForm />
       </SectionContainer>
       <SectionContainer>
         <Heading type={HeadingEnum.subSection} id="hotel">

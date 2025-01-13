@@ -11,6 +11,9 @@ const client = new Client({
   connectionString: process.env.PGURI,
 });
 
+const { formSchema } = require("../frontend/src/types/schemas");
+const { saveRsvp } = require("./submit.service");
+
 client.connect();
 
 const app = express();
@@ -27,53 +30,41 @@ app.get("/api", async (_, response) => {
   response.send(rows);
 });
 
-app.post("/api/mail", async (req, res) => {
-  console.log(req.body);
-  const email = req.body.email;
-  const transporter = nodemailer.createTransport({
-    service: "gmail",
-    auth: {
-      user: process.env.GMAIL_USER,
-      pass: process.env.GMAIL_APP_PASSWORD,
-    },
-  });
+app.post("/api/submit", async (req, res) => {
+  // Validate the request body using safeParse
+  const result = formSchema.safeParse(req.body);
 
-  if (!email) {
-    return res.status(400).send("E-postadress saknas");
+  if (!result.success) {
+    // Handle validation errors
+    return res.status(400).json({ errors: result.error.errors });
   }
 
+  // Destructure the validated data
+  const { guests } = result.data;
+
+  // Insert the data into the database
   try {
-    const mailOptions = {
-      from: process.env.GMAIL_USER,
-      to: email,
-      subject: "Bekräftelsemail",
-      html: `<h1>Hej!</h1><p>Tack för din anmälan. Vi bekräftar härmed din registrering.</p>`,
-    };
+    const dbResult = saveRsvp(guests);
+  } catch {
+    return res.status(500).json({ message: "Failed to save data" });
+  }
 
-    await transporter.sendMail(mailOptions);
-
-    res.status(200).send("Bekräftelsemail har skickats");
-  } catch (error) {
-    console.error("Fel vid skickande av mail:", error);
-    res.status(500).send("Det gick inte att skicka bekräftelsemailet");
-  } finally {
-    const { inputData } = req.body;
-
-    const { rows } = await client.query(
-      "INSERT INTO RSVPs (name, last_name, email, attending_wedding, attending_dinner, special_food, misc) VALUES ($1, $2, $3, $4, $5, $6, $7)",
-      [
-        inputData.name,
-        inputData.lastName,
-        inputData.email,
-        inputData.attendingWedding,
-        inputData.attendingDinner,
-        inputData.specialFood,
-        inputData.misc,
-      ]
-    );
-    response.send(rows);
+  // Send a confirmation email
+  try {
+    const emails = guests.map((guest) => guest.email);
+    await sendEmails(emails);
+    return res.status(200).json({ message: "Data saved successfully}" });
+  } catch {
+    return res.status(500).json({ message: "Failed to send email" });
   }
 });
+
+// app.post("/api/submit", (req, res) => {
+//   const inputData = req.body;
+
+//   console.log("Received data:", inputData); // Log the received data instead of saving it to the database
+//   res.status(200).json({ message: "Data received successfully" });
+// });
 
 app.use(express.static(path.join(path.resolve(), "dist")));
 
