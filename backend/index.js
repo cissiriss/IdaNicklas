@@ -47,7 +47,7 @@ app.use(express.json());
 
 app.use(cors());
 
-async function sendEmails(emails) {
+async function sendEmails(guests) {
   // Create a transporter
   const transporter = nodemailer.createTransport({
     service: "gmail",
@@ -57,27 +57,33 @@ async function sendEmails(emails) {
     },
   });
   // Looping through all emails that were registered
-  const emailPromises = emails.map((email) => {
+
+  const emailPromises = guests.map((guest) => {
     const mailOptions = {
       from: process.env.GMAIL_USER,
-      to: email,
+      to: guest.email,
       subject: "Bekräftelsemail",
-      html: `<h1>Hej!</h1><p>Tack för din anmälan. Vi bekräftar härmed din registrering.</p>`,
+      html: `
+      <h1>Hej!</h1>
+      <p>Tack för ditt svar. Vi bekräftar härmed ditt svar: </p>
+      <p> Namn: ${guest.name}</p>
+      <p> Efternamn: ${guest.lastName}</p>
+      <p> E-post: ${guest.email}</p>
+      <p> Kommer på bröllopet: ${
+        guest.attendingWedding === "true" ? "Ja" : "Nej"
+      }</p>
+      <p> Kommer på uppladdning fredag: ${
+        guest.attendingDinner === "true" ? "Ja" : "Nej"
+      }</p>
+      <p> Specialmat: ${guest.specialFood}</p>
+      <p> Misc: ${guest.misc}</p>
+      `,
     };
     transporter.sendMail(mailOptions);
   });
 
   // Prosime.all to wait for all emails to be sent
   return await Promise.all(emailPromises);
-}
-
-async function saveRsvp(guests) {
-  // Example query to instet data into the database
-  // Do the correct one
-  await client.query(
-    "INSERT INTO RSVPs (attending_wedding, guests) VALUES ($1, $2)",
-    [true, guests]
-  );
 }
 
 app.get("/api", async (_, response) => {
@@ -87,6 +93,53 @@ app.get("/api", async (_, response) => {
   );
   response.send(rows);
 });
+
+const saveRsvp = async (client, guests) => {
+  try {
+    // Start a transaction
+    await client.query("BEGIN");
+
+    // Step 1: Insert into Parties table and retrieve the party ID
+    const partyResult = await client.query(
+      "INSERT INTO Parties DEFAULT VALUES RETURNING id"
+    );
+    const partyId = partyResult.rows[0].id;
+
+    // Step 2: Insert each guest into Guests table
+    const guestInsertPromises = guests.map((guest) => {
+      return client.query(
+        `
+        INSERT INTO Guests (
+          party_id, name, last_name, email, attending_wedding, attending_dinner, special_food, misc
+        ) VALUES ($1, $2, $3, $4, $5, $6, $7, $8)
+        `,
+        [
+          partyId,
+          guest.name,
+          guest.lastName,
+          guest.email,
+          guest.attendingWedding,
+          guest.attendingDinner,
+          guest.specialFood ?? "",
+          guest.misc ?? "",
+        ]
+      );
+    });
+
+    // Wait for all guest insertions to complete
+    await Promise.all(guestInsertPromises);
+
+    // Commit the transaction
+    await client.query("COMMIT");
+
+    return { success: true };
+  } catch (error) {
+    // Rollback transaction on error
+    await client.query("ROLLBACK");
+    console.error("Error saving RSVP:", error);
+    throw error;
+  }
+};
 
 app.post("/api/submit", async (req, res) => {
   // Validate the request body using safeParse
@@ -101,29 +154,20 @@ app.post("/api/submit", async (req, res) => {
   const { guests } = result.data;
 
   // Insert the data into the database
-  // try {
-  //   const dbResult = saveRsvp(client, guests);
-  // } catch {
-  //   return res.status(500).json({ message: "Failed to save data" });
-  // }
+  try {
+    await saveRsvp(client, guests);
+  } catch {
+    return res.status(500).json({ message: "Failed to save data" });
+  }
 
   // Send a confirmation email
   try {
-    const emails = guests.map((guest) => guest.email);
-
-    const emailResult = await sendEmails(emails);
+    const emailResult = await sendEmails(guests);
     return res.status(200).json({ message: "Data saved successfully}" });
   } catch {
     return res.status(500).json({ message: "Failed to send email" });
   }
 });
-
-// app.post("/api/submit", (req, res) => {
-//   const inputData = req.body;
-
-//   console.log("Received data:", inputData); // Log the received data instead of saving it to the database
-//   res.status(200).json({ message: "Data received successfully" });
-// });
 
 app.use(express.static(path.join(path.resolve(), "dist")));
 
