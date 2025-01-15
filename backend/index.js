@@ -120,8 +120,8 @@ const saveRsvp = async (client, guests) => {
           guest.email,
           guest.attendingWedding,
           guest.attendingDinner,
-          guest.specialFood ?? "",
-          guest.misc ?? "",
+          guest.specialFood,
+          guest.misc,
         ]
       );
     });
@@ -152,6 +152,7 @@ app.post("/api/submit", async (req, res) => {
 
   // Destructure the validated data
   const { guests } = result.data;
+  console.log("Guests:", guests);
 
   // Send a confirmation email
   try {
@@ -183,7 +184,9 @@ app.post("/api/submit", async (req, res) => {
       <p> Kommer på uppladdning fredag: ${
         guest.attendingDinner === "true" ? "Ja" : "Nej"
       }</p>
-      <p> Specialmat: ${guest.specialFood}</p>
+      <p> Specialmat: ${guest.specialFood} ? ${
+          guest.specialFood
+        } : "Inget anmält"</p>
       <p> Misc: ${guest.misc}</p>
       `,
       };
@@ -192,8 +195,6 @@ app.post("/api/submit", async (req, res) => {
 
     // Prosime.all to wait for all emails to be sent
     await Promise.all(emailPromises);
-
-    return res.status(200).json({ message: "Email sent successfully" });
   } catch {
     res.status(500).json({ message: "Failed to send email" });
   }

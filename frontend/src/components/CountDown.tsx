@@ -29,7 +29,7 @@ export const CountDown: React.FC<CountdownProps> = ({ targetDate }) => {
   };
 
   return (
-    <div className="min-w-[250px] flex flex-col items-center justify-center bg-blue border border-gray-200 p-4 rounded">
+    <div className="min-w-[250px] flex flex-col items-center justify-center bg-blue border border-gray-200 p-4 rounded mb-6">
       {timeLeft > 0 ? (
         <p className="text-4xl text-light font-alumni font-light">
           {formatTime(timeLeft)}

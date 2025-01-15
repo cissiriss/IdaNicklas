@@ -4,8 +4,8 @@ export const SectionContainer = ({
   children: React.ReactNode;
 }) => {
   return (
-    <section className="flex flex-col sm:justify-center mb-8">
-      {children}
+    <section className="flex justify-center items-center mb-8">
+      <div className="flex flex-col justify-center sm:w-1/2">{children}</div>
     </section>
   );
 };

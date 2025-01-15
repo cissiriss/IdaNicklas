@@ -9,9 +9,11 @@ export const Heading = ({ type, id, children }: HeadingProps) => {
   switch (type) {
     case HeadingEnum.section:
       return (
-        <h2 id={id} className="font-windsong text-5xl text-center mb-4">
-          {children}
-        </h2>
+        <div className="flex justify-center items-center sm:self-center sm:w-1/2">
+          <h2 id={id} className="font-windsong text-5xl text-center mb-4">
+            {children}
+          </h2>
+        </div>
       );
     case HeadingEnum.subSection:
       return (

@@ -51,6 +51,8 @@ export default function OsaForm() {
 
   const guestsValues = watch("guests");
 
+  console.log(guestsValues);
+
   return (
     <form
       onSubmit={handleSubmit(onSubmit)}
@@ -150,7 +152,6 @@ export default function OsaForm() {
                 <input
                   {...register(`guests.${index}.specialFood`)}
                   type="text"
-                  name="Specialkost"
                   placeholder="Specialkost"
                   className={`input input-bordered ${
                     errors.guests?.[index]?.specialFood
@@ -170,7 +171,6 @@ export default function OsaForm() {
                 <input
                   {...register(`guests.${index}.misc`)}
                   type="text"
-                  name="Övrigt"
                   placeholder="Övrigt"
                   className={`input input-bordered ${
                     errors.guests?.[index]?.misc ? "input-error text-error" : ""

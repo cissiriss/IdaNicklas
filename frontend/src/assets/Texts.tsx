@@ -1,6 +1,6 @@
 export const DirectionsMarkup = () => (
   <>
-    <p className="font-alumni">
+    <p className="sm:text-center font-alumni">
       Vigseln kommer att vara i Jonsereds trädgårdar och middagen/festen är i
       fabriksstråket Jonsered. Bil: Vi rekommenderar att parkera bilen vid
       Jonsereds fabriker för att sedan promenera till Jonsereds trädgårdar.
@@ -98,10 +98,39 @@ export const DinnerMarkup = () => (
 export const SpeachMarkup = () => (
   <>
     <p className="text-xl">
-      Önskar du att hålla tal? Skicka in din anmälan här så planerar våra
-      toastmastrar in ditt framträdande i kvällens schema. Vi vill ha er anmälan
-      senast 1/3-2025.
+      Önskar du hålla tal? Maila din anmälan direkt till våra toastmastrar så
+      planerar de in ditt framträdande i kvällens schema. De vill ha din anmälan
+      senast 1/3-2025.{" "}
     </p>
+    <div className="w-[350px] flex flex-col  self-center">
+      <p className="font-medium text-xl mt-4">
+        Ditt mail bör innehålla följande:
+        <p className="text-xl text-start font-light mt-4">
+          <ul>
+            <li className="list-inside list-disc">Ditt namn</li>
+            <li className="list-inside list-disc">Ditt telefonnummer</li>
+            <li className="list-inside list-disc">
+              Vad du vill göra (ex tal eller spex)
+            </li>
+            <li className="list-inside list-disc">
+              Om du behöver något (ex projektor eller mycket yta)
+            </li>
+            <li className="list-inside list-disc">
+              Vilken låt du vill ska spelas när det är dags för ditt tal
+            </li>
+            <li className="list-inside list-disc">
+              Vilken typ av tal du tänker dig (ex humoristiskt, känslosamt)
+            </li>
+            <li className="list-inside list-disc">
+              Ev något annat som kan vara bra att känna till
+            </li>
+          </ul>
+        </p>
+        Maila till: IdaNicklas2025@gmail.com
+        <br />
+        Tänk på att ditt tal bör vara max 5 minuter.
+      </p>
+    </div>
   </>
 );
 
@@ -113,38 +142,39 @@ export const DressCodeMarkup = () => (
     <p className="text-xl mb-2 sm:text-center">
       Exempel på passande kläder till klädkoden:
     </p>
-    <div className="mb-2">
-      <p className="text-xl"> Herr:</p>
+    <div className="flex justify-center items-center">
+      <div className="flex flex-col justify-center items-start w-[350px]">
+        <p className="text-xl text-start"> Herr:</p>
 
-      <ul className="list-disc ml-6">
-        <li>
-          Kostym i valfri färg. Kavaj, byxa och eventuellt väst ska vara i samma
-          tyg och färg.
-        </li>
+        <ul className="list-disc list-outside text-start ml-6">
+          <li>
+            Kostym i valfri färg. Kavaj, byxa och eventuellt väst ska vara i
+            samma tyg och färg.
+          </li>
 
-        <li>Skjorta i valfri färg.</li>
-        <li>
-          Skorna ska vara svarta eller bruna. Eventuellt skärp ska vara i samma
-          färg som skorna.
-        </li>
-        <li> Slips eller fluga är obligatoriskt. </li>
-      </ul>
-    </div>
-    <div>
-      <p className="text-xl"> Dam:</p>
+          <li>Skjorta i valfri färg.</li>
+          <li>
+            Skorna ska vara svarta eller bruna. Eventuellt skärp ska vara i
+            samma färg som skorna.
+          </li>
+          <li> Slips eller fluga är obligatoriskt. </li>
+        </ul>
 
-      <ul className="list-disc ml-6 mb-8">
-        <li>
-          Klänning, kjol eller byxdress. Det ska vara elegant men inte lika
-          uppklätt som en mörk aftonklädsel. Klänning eller kjol ska minst gå
-          ned till knäna, men inte vara golvlång.{" "}
-        </li>
-        <li>
-          För skor passar finare skor än vad du brukar bära till vardags.
-          Exempelvis klackskor eller ballerinaskor. (Efter middagen kan ni sadla
-          om till mer dansvänliga skor)
-        </li>
-      </ul>
+        <p className="text-xl text-start mt-4"> Dam:</p>
+
+        <ul className="text-start list-disc ml-6 mb-8">
+          <li>
+            Klänning, kjol eller byxdress. Det ska vara elegant men inte lika
+            uppklätt som en mörk aftonklädsel. Klänning eller kjol ska minst gå
+            ned till knäna, men inte vara golvlång.{" "}
+          </li>
+          <li>
+            För skor passar finare skor än vad du brukar bära till vardags.
+            Exempelvis klackskor eller ballerinaskor. (Efter middagen kan ni
+            sadla om till mer dansvänliga skor)
+          </li>
+        </ul>
+      </div>
     </div>
   </>
 );
