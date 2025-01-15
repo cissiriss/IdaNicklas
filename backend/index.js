@@ -47,44 +47,44 @@ app.use(express.json());
 
 app.use(cors());
 
-async function sendEmails(guests) {
-  // Create a transporter
-  const transporter = nodemailer.createTransport({
-    service: "gmail",
-    auth: {
-      user: process.env.GMAIL_USER,
-      pass: process.env.GMAIL_APP_PASSWORD,
-    },
-  });
-  // Looping through all emails that were registered
+// async function sendEmails(guests) {
+//   // Create a transporter
+//   const transporter = nodemailer.createTransport({
+//     service: "gmail",
+//     auth: {
+//       user: process.env.GMAIL_USER,
+//       pass: process.env.GMAIL_APP_PASSWORD,
+//     },
+//   });
+//   // Looping through all emails that were registered
 
-  const emailPromises = guests.map((guest) => {
-    const mailOptions = {
-      from: process.env.GMAIL_USER,
-      to: guest.email,
-      subject: "Bekräftelsemail",
-      html: `
-      <h1>Hej!</h1>
-      <p>Tack för ditt svar. Vi bekräftar härmed ditt svar: </p>
-      <p> Namn: ${guest.name}</p>
-      <p> Efternamn: ${guest.lastName}</p>
-      <p> E-post: ${guest.email}</p>
-      <p> Kommer på bröllopet: ${
-        guest.attendingWedding === "true" ? "Ja" : "Nej"
-      }</p>
-      <p> Kommer på uppladdning fredag: ${
-        guest.attendingDinner === "true" ? "Ja" : "Nej"
-      }</p>
-      <p> Specialmat: ${guest.specialFood}</p>
-      <p> Misc: ${guest.misc}</p>
-      `,
-    };
-    transporter.sendMail(mailOptions);
-  });
+//   const emailPromises = guests.map((guest) => {
+//     const mailOptions = {
+//       from: process.env.GMAIL_USER,
+//       to: guest.email,
+//       subject: "Bekräftelsemail",
+//       html: `
+//       <h1>Hej!</h1>
+//       <p>Tack för ditt svar. Vi bekräftar härmed ditt svar: </p>
+//       <p> Namn: ${guest.name}</p>
+//       <p> Efternamn: ${guest.lastName}</p>
+//       <p> E-post: ${guest.email}</p>
+//       <p> Kommer på bröllopet: ${
+//         guest.attendingWedding === "true" ? "Ja" : "Nej"
+//       }</p>
+//       <p> Kommer på uppladdning fredag: ${
+//         guest.attendingDinner === "true" ? "Ja" : "Nej"
+//       }</p>
+//       <p> Specialmat: ${guest.specialFood}</p>
+//       <p> Misc: ${guest.misc}</p>
+//       `,
+//     };
+//     transporter.sendMail(mailOptions);
+//   });
 
-  // Prosime.all to wait for all emails to be sent
-  return await Promise.all(emailPromises);
-}
+//   // Prosime.all to wait for all emails to be sent
+//   return await Promise.all(emailPromises);
+// }
 
 app.get("/api", async (_, response) => {
   const { rows } = await client.query(
@@ -153,14 +153,6 @@ app.post("/api/submit", async (req, res) => {
   // Destructure the validated data
   const { guests } = result.data;
 
-  // Insert the data into the database
-  try {
-    await saveRsvp(client, guests);
-    res.status(200).json({ message: "Data saved successfully" });
-  } catch {
-    return res.status(500).json({ message: "Failed to save data" });
-  }
-
   // Send a confirmation email
   try {
     // const emailResult = await sendEmails(guests);
@@ -201,13 +193,18 @@ app.post("/api/submit", async (req, res) => {
     // Prosime.all to wait for all emails to be sent
     await Promise.all(emailPromises);
 
-    return res
-      .status(200)
-      .json({ message: `Email sent successfully: ${emailResult}` });
+    return res.status(200).json({ message: "Email sent successfully" });
   } catch {
-    return res
-      .status(500)
-      .json({ message: `Failed to send email, ${emailResult}` });
+    res.status(500).json({ message: "Failed to send email" });
+  }
+
+  // Insert the data into the database
+  try {
+    await saveRsvp(client, guests);
+    console.log("guests", guests);
+    res.status(200).json({ message: "Data saved successfully" });
+  } catch {
+    return res.status(500).json({ message: "Failed to save data" });
   }
 });
 
