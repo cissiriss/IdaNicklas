@@ -157,12 +157,6 @@ app.post("/api/submit", async (req, res) => {
   try {
     await saveRsvp(client, guests);
     res.status(200).json({ message: "Data saved successfully" });
-  } catch {
-    return res.status(500).json({ message: "Failed to save data" });
-  }
-
-  // Send a confirmation email
-  try {
     const emailResult = await sendEmails(guests);
     res.send(emailResult);
     return res
@@ -171,7 +165,9 @@ app.post("/api/submit", async (req, res) => {
   } catch {
     return res
       .status(500)
-      .json({ message: `Failed to send email, ${emailResult}` });
+      .json({
+        message: `Failed to save data, ${emailResult}, data: ${guests}`,
+      });
   }
 });
 
