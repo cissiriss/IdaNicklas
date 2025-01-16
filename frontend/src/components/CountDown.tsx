@@ -4,7 +4,7 @@ interface CountdownProps {
   targetDate: Date;
 }
 
-export const CountDown: React.FC<CountdownProps> = ({ targetDate }) => {
+export const CountDown = ({ targetDate }: CountdownProps) => {
   const calculateTimeLeft = () => {
     const difference = +targetDate - +new Date();
     return difference > 0 ? difference : 0;

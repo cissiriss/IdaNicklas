@@ -147,7 +147,7 @@ app.post("/api/submit", async (req, res) => {
 
   if (!result.success) {
     // Handle validation errors
-    return res.status(400).json({ errors: result.error.errors });
+    return res.status(400).json({ errors: result.errors.error });
   }
 
   // Destructure the validated data
@@ -184,10 +184,10 @@ app.post("/api/submit", async (req, res) => {
       <p> Kommer på uppladdning fredag: ${
         guest.attendingDinner === "true" ? "Ja" : "Nej"
       }</p>
-      <p> Specialmat: ${guest.specialFood} ? ${
-          guest.specialFood
-        } : "Inget anmält"</p>
-      <p> Misc: ${guest.misc}</p>
+      <p> Specialmat: ${
+        guest.specialFood ? guest.specialFood : "Inget anmält"
+      }</p>
+      <p> Övrigt: ${guest.misc}</p>
       `,
       };
       transporter.sendMail(mailOptions);

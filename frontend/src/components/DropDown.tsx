@@ -9,8 +9,6 @@ export const DropDown = () => {
   };
 
   const handleClickOutside = (event: MouseEvent) => {
-    console.log("outside");
-
     if (
       dropdownRef.current &&
       !dropdownRef.current.contains(event.target as Node)

@@ -7,7 +7,7 @@
   border-radius: 8px;
 } */
 
-.dropdown-container {
+/* .dropdown-container {
   position: absolute;
   flex-direction: row;
   width: 50vw;
@@ -20,7 +20,7 @@
   display: flex;
   flex-direction: row;
   justify-content: center;
-}
+} */
 
 /* .header {
   font-family: "Alumni Sans Pinstripe", serif;
@@ -38,7 +38,7 @@
   margin: 0;
 } */
 
-#and {
+/* #and {
   font-family: "WindSong";
   font-size: 90px;
   padding: 10px 10px 0 0;
@@ -51,4 +51,4 @@
   .dropdown-container {
     width: 100vw;
   }
-}
+} */

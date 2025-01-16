@@ -2,6 +2,7 @@ import { SubmitHandler, useForm, useFieldArray } from "react-hook-form";
 import { formSchema } from "../types/schemas";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { FormType } from "../types/types";
+import Confetti from "react-confetti";
 
 export default function OsaForm() {
   const {
@@ -33,6 +34,9 @@ export default function OsaForm() {
     name: "guests",
   });
 
+  const width = window.innerWidth;
+  const height = window.innerHeight;
+
   const onSubmit: SubmitHandler<FormType> = async (data) => {
     console.log({ data });
     try {
@@ -43,10 +47,35 @@ export default function OsaForm() {
         },
         body: JSON.stringify(data),
       });
+      if (
+        data.guests[0].attendingWedding ||
+        data.guests[1].attendingWedding === "true"
+      ) {
+        return <RegistrationModal />;
+      }
     } catch (error) {
       console.log(error);
+    } finally {
+      reset();
     }
-    reset();
+  };
+
+  const RegistrationModal = () => {
+    return (
+      <dialog id="my_modal_1" open className="modal">
+        <div className="modal-box">
+          <h3 className="font-bold text-lg">Hello!</h3>
+          <p className="py-4">
+            Press ESC key or click the button below to close
+          </p>
+          <div className="modal-action">
+            <form method="dialog">
+              <button className="btn">Close</button>
+            </form>
+          </div>
+        </div>
+      </dialog>
+    );
   };
 
   const guestsValues = watch("guests");

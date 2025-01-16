@@ -105,27 +105,27 @@ export const SpeachMarkup = () => (
     <div className="w-[350px] flex flex-col  self-center">
       <p className="font-medium text-xl mt-4">
         Ditt mail bör innehålla följande:
-        <p className="text-xl text-start font-light mt-4">
-          <ul>
-            <li className="list-inside list-disc">Ditt namn</li>
-            <li className="list-inside list-disc">Ditt telefonnummer</li>
-            <li className="list-inside list-disc">
-              Vad du vill göra (ex tal eller spex)
-            </li>
-            <li className="list-inside list-disc">
-              Om du behöver något (ex projektor eller mycket yta)
-            </li>
-            <li className="list-inside list-disc">
-              Vilken låt du vill ska spelas när det är dags för ditt tal
-            </li>
-            <li className="list-inside list-disc">
-              Vilken typ av tal du tänker dig (ex humoristiskt, känslosamt)
-            </li>
-            <li className="list-inside list-disc">
-              Ev något annat som kan vara bra att känna till
-            </li>
-          </ul>
-        </p>
+      </p>
+      <ul className="text-start">
+        <li className="list-inside list-disc">Ditt namn</li>
+        <li className="list-inside list-disc">Ditt telefonnummer</li>
+        <li className="list-inside list-disc">
+          Vad du vill göra (ex tal eller spex)
+        </li>
+        <li className="list-inside list-disc">
+          Om du behöver något (ex projektor eller mycket yta)
+        </li>
+        <li className="list-inside list-disc">
+          Vilken låt du vill ska spelas när det är dags för ditt tal
+        </li>
+        <li className="list-inside list-disc">
+          Vilken typ av tal du tänker dig (ex humoristiskt, känslosamt)
+        </li>
+        <li className="list-inside list-disc">
+          Ev något annat som kan vara bra att känna till
+        </li>
+      </ul>
+      <p className="font-medium text-xl mt-4">
         Maila till: IdaNicklas2025@gmail.com
         <br />
         Tänk på att ditt tal bör vara max 5 minuter.
