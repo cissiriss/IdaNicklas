@@ -2,7 +2,6 @@ import { SubmitHandler, useForm, useFieldArray } from "react-hook-form";
 import { formSchema } from "../types/schemas";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { FormType } from "../types/types";
-import Confetti from "react-confetti";
 
 export default function OsaForm() {
   const {
@@ -33,9 +32,6 @@ export default function OsaForm() {
     control,
     name: "guests",
   });
-
-  const width = window.innerWidth;
-  const height = window.innerHeight;
 
   const onSubmit: SubmitHandler<FormType> = async (data) => {
     console.log({ data });
