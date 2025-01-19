@@ -26,7 +26,7 @@ export const DropDown = () => {
   return (
     <>
       <header>
-        <nav className="fixed top-0 left-0 z-50 max-h-10">
+        <nav className="sm:w-1/2 w-full fixed top-0 left-0 z-50 max-h-10">
           <input
             type="button"
             className="text-3xl bg-blue text-light rounded p-2 m-4 text-center font-alumni font-light"
@@ -35,12 +35,9 @@ export const DropDown = () => {
             hidden={isOpen}
           />
           {isOpen && (
-            <ul
-              ref={dropdownRef}
-              className="dropdown-container menu bg-blue rounded-box w-full"
-            >
+            <>
               <button
-                className="btn absolute m-4 top-0 right-0"
+                className="btn absolute m-4 top-0 right-0 z-50"
                 onClick={toggleDropdown}
               >
                 <svg
@@ -58,111 +55,116 @@ export const DropDown = () => {
                   />
                 </svg>
               </button>
-              <li>
-                <details open>
-                  <summary className="text-3xl text-light font-light font-alumni">
-                    <a href="#wedding">Bröllopet</a>
-                  </summary>
-                  <ul>
-                    <li onClick={toggleDropdown}>
-                      <a
-                        className="text-2xl font-light text-light font-alumni"
-                        href="#osa"
-                      >
-                        OSA
-                      </a>
-                    </li>
-                    <li onClick={toggleDropdown}>
-                      <a
-                        className="text-2xl font-light text-light font-alumni"
-                        href="#hotel"
-                      >
-                        Hotell
-                      </a>
-                    </li>
-                    <li onClick={toggleDropdown}>
-                      <a
-                        className="text-2xl font-light text-light font-alumni"
-                        href="#map"
-                      >
-                        Hita hit
-                      </a>
-                    </li>
-                    <li onClick={toggleDropdown}>
-                      <a
-                        className="text-2xl font-light text-light font-alumni"
-                        href="#songs"
-                      >
-                        Låtförslag
-                      </a>
-                    </li>
-                    <li onClick={toggleDropdown}>
-                      <a
-                        className="text-2xl font-light text-light font-alumni"
-                        href="#gifts"
-                      >
-                        Gåvor
-                      </a>
-                    </li>
-                  </ul>
-                </details>
-                <details open>
-                  <summary className="text-3xl font-light text-light font-alumni">
-                    Program
-                  </summary>
-                  <ul>
-                    <li onClick={toggleDropdown}>
-                      <a
-                        className="text-2xl font-light text-light font-alumni"
-                        href="#friday"
-                      >
-                        Uppladdning fredag
-                      </a>
-                    </li>
-                    <li onClick={toggleDropdown}>
-                      <a
-                        className="text-2xl font-light text-light font-alumni"
-                        href="#location"
-                      >
-                        Om området
-                      </a>
-                    </li>
-                    <li onClick={toggleDropdown}>
-                      <a
-                        className="text-2xl font-light text-light font-alumni"
-                        href="#wedding-ceremony"
-                      >
-                        Vigsel i Jonsered
-                      </a>
-                    </li>
-                    <li onClick={toggleDropdown}>
-                      <a
-                        className="text-2xl font-light text-light font-alumni"
-                        href="#party"
-                      >
-                        Middag och fest
-                      </a>
-                    </li>
-                    <li onClick={toggleDropdown}>
-                      <a
-                        className="text-2xl font-light text-light font-alumni"
-                        href="#speaches"
-                      >
-                        Tal
-                      </a>
-                    </li>
-                    <li onClick={toggleDropdown}>
-                      <a
-                        className="text-2xl font-light text-light font-alumni"
-                        href="#dresscode"
-                      >
-                        Klädkod
-                      </a>
-                    </li>
-                  </ul>
-                </details>
-              </li>
-            </ul>
+              <ul
+                ref={dropdownRef}
+                className="dropdown-container pt-16 menu bg-blue rounded-box"
+              >
+                <li>
+                  <details open>
+                    <summary className="text-3xl text-light font-light font-alumni">
+                      <a href="#wedding">Bröllopet</a>
+                    </summary>
+                    <ul>
+                      <li onClick={toggleDropdown}>
+                        <a
+                          className="text-2xl font-light text-light font-alumni"
+                          href="#osa"
+                        >
+                          OSA
+                        </a>
+                      </li>
+                      <li onClick={toggleDropdown}>
+                        <a
+                          className="text-2xl font-light text-light font-alumni"
+                          href="#hotel"
+                        >
+                          Hotell
+                        </a>
+                      </li>
+                      <li onClick={toggleDropdown}>
+                        <a
+                          className="text-2xl font-light text-light font-alumni"
+                          href="#map"
+                        >
+                          Hita hit
+                        </a>
+                      </li>
+                      <li onClick={toggleDropdown}>
+                        <a
+                          className="text-2xl font-light text-light font-alumni"
+                          href="#song-suggestions"
+                        >
+                          Låtförslag
+                        </a>
+                      </li>
+                      <li onClick={toggleDropdown}>
+                        <a
+                          className="text-2xl font-light text-light font-alumni"
+                          href="#gifts"
+                        >
+                          Gåvor
+                        </a>
+                      </li>
+                    </ul>
+                  </details>
+                  <details open>
+                    <summary className="text-3xl font-light text-light font-alumni">
+                      Program
+                    </summary>
+                    <ul>
+                      <li onClick={toggleDropdown}>
+                        <a
+                          className="text-2xl font-light text-light font-alumni"
+                          href="#friday"
+                        >
+                          Uppladdning fredag
+                        </a>
+                      </li>
+                      <li onClick={toggleDropdown}>
+                        <a
+                          className="text-2xl font-light text-light font-alumni"
+                          href="#location"
+                        >
+                          Om området
+                        </a>
+                      </li>
+                      <li onClick={toggleDropdown}>
+                        <a
+                          className="text-2xl font-light text-light font-alumni"
+                          href="#wedding-ceremony"
+                        >
+                          Vigsel i Jonsered
+                        </a>
+                      </li>
+                      <li onClick={toggleDropdown}>
+                        <a
+                          className="text-2xl font-light text-light font-alumni"
+                          href="#party"
+                        >
+                          Middag och fest
+                        </a>
+                      </li>
+                      <li onClick={toggleDropdown}>
+                        <a
+                          className="text-2xl font-light text-light font-alumni"
+                          href="#speaches"
+                        >
+                          Tal
+                        </a>
+                      </li>
+                      <li onClick={toggleDropdown}>
+                        <a
+                          className="text-2xl font-light text-light font-alumni"
+                          href="#dresscode"
+                        >
+                          Klädkod
+                        </a>
+                      </li>
+                    </ul>
+                  </details>
+                </li>
+              </ul>
+            </>
           )}
         </nav>
       </header>

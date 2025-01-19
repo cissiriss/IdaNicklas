@@ -47,45 +47,6 @@ app.use(express.json());
 
 app.use(cors());
 
-// async function sendEmails(guests) {
-//   // Create a transporter
-//   const transporter = nodemailer.createTransport({
-//     service: "gmail",
-//     auth: {
-//       user: process.env.GMAIL_USER,
-//       pass: process.env.GMAIL_APP_PASSWORD,
-//     },
-//   });
-//   // Looping through all emails that were registered
-
-//   const emailPromises = guests.map((guest) => {
-//     const mailOptions = {
-//       from: process.env.GMAIL_USER,
-//       to: guest.email,
-//       subject: "Bekräftelsemail",
-//       html: `
-//       <h1>Hej!</h1>
-//       <p>Tack för ditt svar. Vi bekräftar härmed ditt svar: </p>
-//       <p> Namn: ${guest.name}</p>
-//       <p> Efternamn: ${guest.lastName}</p>
-//       <p> E-post: ${guest.email}</p>
-//       <p> Kommer på bröllopet: ${
-//         guest.attendingWedding === "true" ? "Ja" : "Nej"
-//       }</p>
-//       <p> Kommer på uppladdning fredag: ${
-//         guest.attendingDinner === "true" ? "Ja" : "Nej"
-//       }</p>
-//       <p> Specialmat: ${guest.specialFood}</p>
-//       <p> Misc: ${guest.misc}</p>
-//       `,
-//     };
-//     transporter.sendMail(mailOptions);
-//   });
-
-//   // Prosime.all to wait for all emails to be sent
-//   return await Promise.all(emailPromises);
-// }
-
 app.get("/api", async (_, response) => {
   const { rows } = await client.query(
     "SELECT * FROM RSVPs WHERE attending_wedding = $1",

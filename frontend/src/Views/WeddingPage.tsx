@@ -9,13 +9,16 @@ import { SectionContainer } from "../components/SectionContainer";
 import { Heading } from "../components/Heading";
 import { HeadingEnum } from "../types/enums";
 import OsaForm from "../components/OsaForm";
+import { SongSuggestion } from "../components/SongSuggestion";
 export const WeddingPage = () => {
   return (
     <>
       <Heading type={HeadingEnum.section} id="wedding">
         Bröllopet
       </Heading>
-      <Image imageSource={bild2} altText="couple by the lake" />
+      <div className="sm:w-2/3 self-center mb-8">
+        <Image imageSource={bild2} altText="couple by the lake" />
+      </div>
       <SectionContainer>
         <Heading type={HeadingEnum.subSection} id="osa">
           OSA
@@ -36,6 +39,12 @@ export const WeddingPage = () => {
         </Heading>
         <DirectionsMarkup />
         <MapComponent />
+      </SectionContainer>
+      <SectionContainer>
+        <Heading type={HeadingEnum.subSection} id="song-suggestions">
+          Låtförslag
+        </Heading>
+        <SongSuggestion />
       </SectionContainer>
       <SectionContainer>
         <Heading type={HeadingEnum.subSection} id="gifts">

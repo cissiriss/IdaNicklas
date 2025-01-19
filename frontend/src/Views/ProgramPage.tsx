@@ -10,7 +10,7 @@ import {
   SpeachMarkup,
 } from "../assets/Texts";
 import { SectionContainer } from "../components/SectionContainer";
-import { DressCodeContainer } from "../components/DresscodeContainer";
+// import { DressCodeContainer } from "../components/DresscodeContainer";
 import { Heading } from "../components/Heading";
 import { HeadingEnum } from "../types/enums";
 
@@ -52,12 +52,13 @@ export default function ProgramPage() {
         </Heading>
         <SpeachMarkup />
       </SectionContainer>
-      <DressCodeContainer>
+
+      <SectionContainer>
         <Heading type={HeadingEnum.subSection} id="dresscode">
           Klädkod
         </Heading>
         <DressCodeMarkup />
-      </DressCodeContainer>
+      </SectionContainer>
     </>
   );
 }

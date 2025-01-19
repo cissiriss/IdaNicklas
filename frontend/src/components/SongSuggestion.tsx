@@ -1,8 +1,8 @@
 export function SongSuggestion() {
   return (
-    <div>
-      <h3 className="font-windsong font-medium text-3xl">Partylåt!</h3>
+    <div id="song-suggestions" className="flex flex-col sm:self-center">
       <p>Skicka ditt festligaste låtförslag till brudparet! </p>
+      <p className="font-medium">Skicka som spotifylänk</p>
       <input
         type="text"
         placeholder="Låtförslag"

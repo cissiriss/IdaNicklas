@@ -5,6 +5,7 @@ import { StartPage } from "./Views/StartPage";
 import { WeddingPage } from "./Views/WeddingPage";
 import ProgramPage from "./Views/ProgramPage";
 import { PageLayoutContainer } from "./components/PageLayoutContainer";
+import Footer from "./components/Footer";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
       <StartPage />
       <WeddingPage />
       <ProgramPage />
+      <Footer />
     </PageLayoutContainer>
   );
 }
