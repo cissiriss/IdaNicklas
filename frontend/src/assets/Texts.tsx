@@ -47,15 +47,20 @@ export const GiftMarkup = () => (
 );
 
 export const HotelMarkup = () => (
-  <p className="sm:text-center text-xl sm:ml-8 sm:mr-8">
-    Som du redan vet finns det ett hotell i direkt anslutning till festen. Vår
-    bröllopshelg är inte längre reserverad för enbart våra gäster. Om du inte
-    har bokat men skulle vilja göra det görs det via denna länk:
-    www.gibsonshotell.se/boka För kännedom: det finns 27 rum på hotellet, av
-    blandad storlek. Det innebär att om du önskar en specifik rumstyp bör du
-    boka skyndsamt! Brudparet bor på hotellet fredag till söndag. Om du också
-    kommer bo på hotellet ser vi fram emot att ses vid frukostbuffén.
-  </p>
+  <>
+    <p className="sm:text-center text-xl sm:ml-8 sm:mr-8">
+      Som du redan vet finns det ett hotell i direkt anslutning till festen. Vår
+      bröllopshelg är inte längre reserverad för enbart våra gäster. Om du inte
+      har bokat men skulle vilja göra det görs det via denna länk:
+      <a href="https://www.gibsonshotell.se/boka">www.gibsonshotell.se/boka</a>
+    </p>
+    <p className="sm:text-center text-xl sm:ml-8 sm:mr-8">
+      För kännedom: det finns 27 rum på hotellet, av blandad storlek. Det
+      innebär att om du önskar en specifik rumstyp bör du boka skyndsamt!
+      Brudparet bor på hotellet fredag till söndag. Om du också kommer bo på
+      hotellet ser vi fram emot att ses vid frukostbuffén.
+    </p>
+  </>
 );
 
 export const PlaceMarkup = () => (
