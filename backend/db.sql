@@ -15,8 +15,6 @@ CREATE TABLE Guests (
     CONSTRAINT fk_party FOREIGN KEY (party_id) REFERENCES Parties (id) ON DELETE CASCADE
 );
 
-CREATE TABLE SongSuggestions (
-    id SERIAL PRIMARY KEY,       
-    name VARCHAR(100) NOT NULL,  
-    song_suggestion VARCHAR(255) NOT NULL 
+CREATE TABLE Songs (       
+    song TEXT NOT NULL,  
 );

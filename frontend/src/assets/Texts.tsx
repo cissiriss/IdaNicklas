@@ -90,8 +90,9 @@ export const CeremonyMarkup = () => (
 
 export const DinnerMarkup = () => (
   <p className="text-xl">
-    Barn är fantastiska men hör inte hemma på vårat bröllop, med undantag för de
-    som ammar (och Tage).
+    Barn är fantastiska men efter vigseln så vill vi fokusera på sällskapet med
+    vuxna. Bebisar som behöver ammas eller flaskmatas får självklart följa med
+    på middagen och festen.
   </p>
 );
 

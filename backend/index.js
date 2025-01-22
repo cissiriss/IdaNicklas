@@ -170,6 +170,17 @@ app.post("/api/submit", async (req, res) => {
   }
 });
 
+app.post("/api/song", async (req, res) => {
+  const { data } = req.body;
+  try {
+    client.query(`INSERT INTO Songs (song) VALUES ($1)`, [data.song]);
+  } catch (error) {
+    console.log(error);
+  } finally {
+    res.status(200).json({ message: "Data saved successfully" });
+  }
+});
+
 app.use(express.static(path.join(path.resolve(), "dist")));
 
 const port = process.env.PORT || 3000;

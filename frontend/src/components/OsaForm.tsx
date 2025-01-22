@@ -71,12 +71,9 @@ export default function OsaForm() {
         className={`flex-col w-full max-w-[600px] mt-8 mx-auto p-4 bg-gray-100 rounded-lg`}
       >
         {fields.map((field, index) => (
-          <fieldset
-            key={field.id}
-            className="mb-4 flex flex-col items-center w-full"
-          >
+          <fieldset key={field.id} className="flex flex-col items-center">
             {index > 0 && <hr className="border-gray-400 w-full mb-4 mt-4" />}
-            <div className="mt-4  form-control max-w-[250px]">
+            <div className="font-alumnibold form-control max-w-[250px]">
               <p className="text-xl">Gäst {index + 1}</p>
               <h3 className="text-xl mt-4"> Jag kommer på bröllopet:</h3>
               <label className="label cursor-pointer">
@@ -102,7 +99,7 @@ export default function OsaForm() {
                 Tyvärr inte..
               </label>
             </div>
-            <div className="mt-4 w-full">
+            <div className="mt-4 w-full flex flex-col items-center">
               <input
                 {...register(`guests.${index}.name`)}
                 type="text"
@@ -237,14 +234,14 @@ export default function OsaForm() {
                 misc: "",
               })
             }
-            className="btn self-center sm:w-1/2 text-xl font-light w-full bg-blue text-white"
+            className="btn self-center sm:w-1/2 w-full text-xl hover:bg-darkblue font-light bg-blue text-white mt-4"
             disabled={fields.length >= 2}
           >
             Lägg till gäst
           </button>
           <button
             type="submit"
-            className="btn self-center sm:w-1/2 w-full text-xl font-light bg-blue text-white mt-4"
+            className="btn self-center sm:w-1/2 w-full text-xl hover:bg-darkblue font-light bg-blue text-white mt-4"
           >
             Skicka OSA
           </button>
