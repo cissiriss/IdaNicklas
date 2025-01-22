@@ -30,8 +30,9 @@ export const FridayMarkup = () => (
 export const GiftMarkup = () => (
   <>
     <p className="text-xl font-light">
-      Om ni vill ge oss bröllopspresent tar vi tacksamt emot bidrag till vårt
-      framtida husköp.
+      Den finaste presenten som ni kan ge oss är helt enkelt att ni närvarar vid
+      vårt bröllp. Om ni ändå önskar ge oss bröllopspresent tar vi tacksamt emot
+      bidrag till vårt framtida husköp.
       <br />
       Swisha i så fall till vår toastmaster Daniel Renhage +4560595883 (danskt
       telefonnummer)
