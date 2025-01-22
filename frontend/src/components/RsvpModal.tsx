@@ -9,7 +9,6 @@ export default function RsvpModal({
   isSubmitted,
   atLeastOneGuestAttendingWedding,
 }: RsvpModalProps) {
-  console.log(isSubmitted, atLeastOneGuestAttendingWedding);
   return (
     <dialog id="my_modal_1" open={isSubmitted} className="modal">
       <div className="modal-box">

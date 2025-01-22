@@ -37,7 +37,6 @@ export default function OsaForm() {
   });
 
   const onSubmit: SubmitHandler<FormType> = async (data) => {
-    console.log({ data });
     try {
       await fetch("/api/submit", {
         method: "POST",
