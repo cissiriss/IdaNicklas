@@ -27,7 +27,9 @@ export default function RsvpModal({
 
         <div className="modal-action">
           <form method="dialog">
-            <button className="btn">Stäng</button>
+            <button className="btn bg-blue text-light hover:bg-darkblue">
+              Stäng
+            </button>
           </form>
         </div>
       </div>

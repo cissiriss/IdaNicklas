@@ -54,7 +54,7 @@ export const HotelMarkup = () => (
       har bokat men skulle vilja göra det görs det via denna länk:
       <a href="https://www.gibsonshotell.se/boka">www.gibsonshotell.se/boka</a>
     </p>
-    <p className="sm:text-center text-xl sm:ml-8 sm:mr-8">
+    <p className="sm:text-center text-xl sm:ml-8 sm:mr-8 mt-4">
       För kännedom: det finns 27 rum på hotellet, av blandad storlek. Det
       innebär att om du önskar en specifik rumstyp bör du boka skyndsamt!
       Brudparet bor på hotellet fredag till söndag. Om du också kommer bo på
@@ -115,7 +115,7 @@ export const SpeachMarkup = () => (
       planerar de in ditt framträdande i kvällens schema. De vill ha din anmälan
       senast 1/3-2025.
     </p>
-    <div className="flex flex-col self-center ml-4">
+    <div className="flex flex-col self-center">
       <p className="font-medium text-xl mt-4">
         Ditt mail bör innehålla följande:
       </p>
@@ -148,7 +148,7 @@ export const DressCodeMarkup = () => (
       Exempel på passande kläder till klädkoden:
     </p>
     <div className="flex justify-center items-center">
-      <div className="flex flex-col justify-center items-center sm:w-[450px]">
+      <div className="flex flex-col sm:justify-center sm:items-center sm:w-2/3">
         <p className="text-xl text-start"> Herr:</p>
 
         <ul className="list-disc list-inside text-start">

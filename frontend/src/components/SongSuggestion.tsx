@@ -27,7 +27,7 @@ export function SongSuggestion() {
         className="flex flex-col sm:self-center items-center"
       >
         <p>Skicka ditt festligaste låtförslag till brudparet! </p>
-        <p className="font-medium">Skicka som spotifylänk</p>
+        <p className="font-medium mb-2">Skicka helst som spotifylänk</p>
         <input
           {...register("song")}
           type="text"
@@ -36,7 +36,7 @@ export function SongSuggestion() {
         />
         <button
           type="submit"
-          className="btn w-full bg-blue hover:bg-darkblue max-w-xs text-light font-alumnip text-lg"
+          className="btn w-1/2 bg-blue mt-4 hover:bg-darkblue text-light font-alumnip text-lg"
         >
           Skicka
         </button>
