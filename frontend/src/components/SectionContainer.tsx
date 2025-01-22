@@ -5,7 +5,9 @@ export const SectionContainer = ({
 }) => {
   return (
     <section className="flex justify-center items-center p-4 mb-8">
-      <div className="flex flex-col justify-center sm:w-2/3">{children}</div>
+      <div className="flex flex-col justify-center p-4 sm:w-2/3">
+        {children}
+      </div>
     </section>
   );
 };

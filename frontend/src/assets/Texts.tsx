@@ -2,15 +2,21 @@ export const DirectionsMarkup = () => (
   <>
     <p className="sm:text-center font-alumni">
       Vigseln kommer att vara i Jonsereds trädgårdar och middagen/festen är i
-      fabriksstråket Jonsered. Bil: Vi rekommenderar att parkera bilen vid
-      Jonsereds fabriker för att sedan promenera till Jonsereds trädgårdar.
-      Efter vigseln kommer alla gäster gemensa promenera till festlokalen.
-      <br />
+      fabriksstråket Jonsered.
+    </p>
+    <p className="sm:text-center font-alumni mt-4">
+      Bil: Vi rekommenderar att parkera bilen vid Jonsereds fabriker för att
+      sedan promenera till Jonsereds trädgårdar. Efter vigseln kommer alla
+      gäster gemensa promenera till festlokalen.
+    </p>
+
+    <p className="sm:text-center font-alumni mt-4">
       Kollektivtrafik: Det tar 12 minuter från Göteborg central till Jonsered
       station med tåget. Sedan är det ca 900m promenad till vigseln och ca 400m
       från festlokalen.
-      <br />
-      Taxi: Adress till vigseln: William Gibsons väg 76, 433 76 Jonsered <br />
+    </p>
+    <p className="sm:text-center font-alumni mt-4">
+      Adress till vigseln: William Gibsons väg 76, 433 76 Jonsered <br />
       Adress till festlokalen: Fabriksstråket 36 & 40, 433 76 Jonsered
     </p>
   </>
@@ -118,7 +124,9 @@ export const SpeachMarkup = () => (
         <li>Ev något annat som kan vara bra att känna till</li>
       </ul>
       <p className="font-medium text-xl mt-4">
-        Maila till: IdaNicklas2025@gmail.com
+        <a href="mailto:IdaNicklas2025@gmail.com">
+          Maila till: IdaNicklas2025@gmail.com
+        </a>
         <br />
         Tänk på att ditt tal bör vara max 5 minuter.
       </p>

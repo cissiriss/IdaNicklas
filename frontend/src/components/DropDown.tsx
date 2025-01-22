@@ -29,7 +29,7 @@ export const DropDown = () => {
         <nav className="sm:w-1/2 w-full fixed top-0 left-0 z-50 max-h-10">
           <input
             type="button"
-            className="text-3xl bg-blue text-light rounded p-2 m-4 text-center font-alumni font-light"
+            className="cursor-pointer hover:bg-darkblue text-3xl bg-blue text-light rounded p-2 m-4 text-center font-alumni font-light"
             value="Meny"
             onClick={toggleDropdown}
             hidden={isOpen}
