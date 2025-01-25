@@ -7,7 +7,7 @@ export const DirectionsMarkup = () => (
     <p className="sm:text-center font-alumni mt-4">
       Bil: Vi rekommenderar att parkera bilen vid Jonsereds fabriker för att
       sedan promenera till Jonsereds trädgårdar. Efter vigseln kommer alla
-      gäster gemensa promenera till festlokalen.
+      gäster gemensamt promenera till festlokalen.
     </p>
 
     <p className="sm:text-center font-alumni mt-4">
@@ -186,7 +186,7 @@ export const DressCodeMarkup = () => (
 export const WelcomeMarkup = () => (
   <p className="mt-4">
     Välkommen till Ida och Nicklas bröllopssida! Här samlar vi all information
-    som du behöver veta inför vår brölloppshelg. Du är en av personerna som vi
+    som du behöver veta inför vår bröllopshelg. Du är en av personerna som vi
     gärna vill dela vår stora dag med och vi hoppas att du har möjlighet att
     medverka.
   </p>
