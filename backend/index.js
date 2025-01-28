@@ -47,14 +47,6 @@ app.use(express.json());
 
 app.use(cors());
 
-app.get("/api", async (_, response) => {
-  const { rows } = await client.query(
-    "SELECT * FROM RSVPs WHERE attending_wedding = $1",
-    [true]
-  );
-  response.send(rows);
-});
-
 const saveRsvp = async (client, guests) => {
   try {
     // Start a transaction
@@ -177,6 +169,34 @@ app.post("/api/song", async (req, res) => {
     console.log(error);
   } finally {
     res.status(200).json({ message: "Data saved successfully" });
+  }
+});
+
+app.get("/api/rsvp", async (req, res) => {
+  try {
+    const result = await client.query(
+      `
+          SELECT 
+        party_id AS "party",
+        CONCAT(name, ' ', last_name) AS "namn",
+        email,
+        CASE 
+            WHEN attending_wedding THEN 'Ja' 
+            ELSE 'Nej' 
+        END AS "attendingWedding",
+        CASE 
+            WHEN attending_dinner THEN 'Ja' 
+            ELSE 'Nej' 
+        END AS "attendingDinner",
+        COALESCE(special_food, 'Ingen') AS "specialFood",
+        COALESCE(misc, 'Ingen') AS "other"
+    FROM 
+        Guests;
+        `
+    );
+    res.status(200).json(result.rows);
+  } catch (error) {
+    console.log(error);
   }
 });
 
