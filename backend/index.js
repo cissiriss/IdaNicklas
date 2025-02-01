@@ -5,6 +5,8 @@ import * as dotenv from "dotenv";
 import path from "path";
 import pkg from "pg";
 import { z } from "zod";
+import jwt from "jsonwebtoken";
+import bcrypt from "bcrypt";
 
 const guestSchema = z.object({
   name: z.string().min(1, { message: "Du har inte fyllt i namn" }),
@@ -54,7 +56,7 @@ const saveRsvp = async (client, guests) => {
 
     // Step 1: Insert into Parties table and retrieve the party ID
     const partyResult = await client.query(
-      "INSERT INTO Parties DEFAULT VALUES RETURNING id"
+      "INSERT INTO Parties DEFAULT VALUES RETURNING id",
     );
     const partyId = partyResult.rows[0].id;
 
@@ -75,7 +77,7 @@ const saveRsvp = async (client, guests) => {
           guest.attendingDinner,
           guest.specialFood,
           guest.misc,
-        ]
+        ],
       );
     });
 
@@ -172,27 +174,58 @@ app.post("/api/song", async (req, res) => {
   }
 });
 
-app.get("/api/rsvp", async (req, res) => {
+// Middleware to authenticate admin using JWT
+function authenticateAdmin(req, res, next) {
+  const token = req.headers["authorization"];
+  if (!token) {
+    return res.status(401).send("Unauthorized");
+  }
+
+  jwt.verify(token, process.env.JWT_SECRET, (err, decoded) => {
+    if (err) {
+      return res.status(401).send("Unauthorized");
+    }
+    req.user = decoded;
+    next();
+  });
+}
+
+// Route to generate JWT
+app.post("/api/login", async (req, res) => {
+  const { password } = req.body;
+  const adminPassword = process.env.ADMIN_PASSWORD;
+
+  if (password === adminPassword) {
+    const token = jwt.sign({ role: "admin" }, process.env.JWT_SECRET, {
+      expiresIn: "1d",
+    });
+    res.json({ token });
+  } else {
+    res.status(401).send("Unauthorized");
+  }
+});
+
+app.get("/api/rsvp", authenticateAdmin, async (req, res) => {
   try {
     const result = await client.query(
       `
-          SELECT 
+          SELECT
         party_id AS "party",
         CONCAT(name, ' ', last_name) AS "namn",
         email,
-        CASE 
-            WHEN attending_wedding THEN 'Ja' 
-            ELSE 'Nej' 
+        CASE
+            WHEN attending_wedding THEN 'Ja'
+            ELSE 'Nej'
         END AS "attendingWedding",
-        CASE 
-            WHEN attending_dinner THEN 'Ja' 
-            ELSE 'Nej' 
+        CASE
+            WHEN attending_dinner THEN 'Ja'
+            ELSE 'Nej'
         END AS "attendingDinner",
         COALESCE(special_food, 'Ingen') AS "specialFood",
         COALESCE(misc, 'Ingen') AS "other"
-    FROM 
+    FROM
         Guests;
-        `
+        `,
     );
     res.status(200).json(result.rows);
   } catch (error) {
