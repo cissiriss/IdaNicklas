@@ -6,7 +6,6 @@ import path from "path";
 import pkg from "pg";
 import { z } from "zod";
 import jwt from "jsonwebtoken";
-import bcrypt from "bcrypt";
 
 const guestSchema = z.object({
   name: z.string().min(1, { message: "Du har inte fyllt i namn" }),
@@ -56,7 +55,7 @@ const saveRsvp = async (client, guests) => {
 
     // Step 1: Insert into Parties table and retrieve the party ID
     const partyResult = await client.query(
-      "INSERT INTO Parties DEFAULT VALUES RETURNING id",
+      "INSERT INTO Parties DEFAULT VALUES RETURNING id"
     );
     const partyId = partyResult.rows[0].id;
 
@@ -77,7 +76,7 @@ const saveRsvp = async (client, guests) => {
           guest.attendingDinner,
           guest.specialFood,
           guest.misc,
-        ],
+        ]
       );
     });
 
@@ -176,7 +175,7 @@ app.post("/api/song", async (req, res) => {
 
 // Middleware to authenticate admin using JWT
 function authenticateAdmin(req, res, next) {
-  const token = req.headers["authorization"];
+  const token = req.headers["authorization"].split(" ")[1];
   if (!token) {
     return res.status(401).send("Unauthorized");
   }
@@ -225,7 +224,7 @@ app.get("/api/rsvp", authenticateAdmin, async (req, res) => {
         COALESCE(misc, 'Ingen') AS "other"
     FROM
         Guests;
-        `,
+        `
     );
     res.status(200).json(result.rows);
   } catch (error) {

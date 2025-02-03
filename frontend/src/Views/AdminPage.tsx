@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import { guestSchema } from "../types/schemas";
 
 interface Guest {
   party: number;
@@ -12,7 +11,7 @@ interface Guest {
 }
 
 export default function AdminPage() {
-  const [guests, setGuests] = useState<Guest[]>();
+  const [guests, setGuests] = useState<Guest[]>([]);
 
   const getGuests = async () => {
     try {
@@ -25,8 +24,7 @@ export default function AdminPage() {
 
       if (response.ok) {
         const guests = await response.json();
-        const parsedGuests: Guest[] = guests?.data?.map(guestSchema.parse);
-        setGuests(parsedGuests);
+        setGuests(guests);
       }
     } catch (error) {
       console.log(error);
@@ -37,32 +35,36 @@ export default function AdminPage() {
     getGuests();
   }, []);
 
-  console.log(guests?.forEach((guest) => console.log(guest)));
-
   return (
     <div className="overflow-x-auto">
-      <table className="flex flex-col  table table-xs table-pin-rows table-pin-cols">
+      <table className="flex flex-col table table-xs table-pin-rows table-pin-cols">
+        <thead className="text-xl">
+          <tr>
+            <th>Sällskap</th>
+            <th>Namn</th>
+            <th>Bröllopet</th>
+            <th>Fredagen</th>
+            <th>Specialkost</th>
+            <th>Email</th>
+            <th>Övrigt</th>
+          </tr>
+        </thead>
         {guests &&
           guests.map((guest) => (
             <>
-              <thead>
-                <tr>
-                  <th>Sällskap</th>
-                  <th>Namn</th>
-                  <th>Bröllopet</th>
-                  <th>Fredagen</th>
-                  <th>Specialkost</th>
-                  <th>Övrigt</th>
-                </tr>
-              </thead>
               <tbody>
                 <tr>
-                  <td>{guest.party}</td>
-                  <td>{guest.namn}</td>
-                  <td>{guest.attendingWedding ? "Ja" : "Nej"}</td>
-                  <td>{guest.attendingDinner ? "Ja" : "Nej"}</td>
-                  <td>{guest.specialFood}</td>
-                  <td>{guest.other}</td>
+                  <td className="text-lg">{guest.party}</td>
+                  <td className="text-lg">{guest.namn}</td>
+                  <td className="text-lg">
+                    {guest.attendingWedding ? "Ja" : "Nej"}
+                  </td>
+                  <td className="text-lg">
+                    {guest.attendingDinner ? "Ja" : "Nej"}
+                  </td>
+                  <td className="text-lg">{guest.specialFood}</td>
+                  <td className="text-lg">{guest.email}</td>
+                  <td className="text-lg">{guest.other}</td>
                 </tr>
               </tbody>
             </>
