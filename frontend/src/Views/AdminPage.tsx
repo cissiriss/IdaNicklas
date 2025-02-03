@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { guestSchema } from "../types/schemas";
 
 interface Guest {
   party: number;
@@ -15,9 +16,18 @@ export default function AdminPage() {
 
   const getGuests = async () => {
     try {
-      const response = await fetch("/api/rsvp");
-      const guests = await response.json();
-      setGuests(guests);
+      const token = localStorage.getItem("token");
+      const response = await fetch("/api/rsvp", {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+
+      if (response.ok) {
+        const guests = await response.json();
+        const parsedGuests: Guest[] = guests?.data?.map(guestSchema.parse);
+        setGuests(parsedGuests);
+      }
     } catch (error) {
       console.log(error);
     }
@@ -49,8 +59,8 @@ export default function AdminPage() {
                 <tr>
                   <td>{guest.party}</td>
                   <td>{guest.namn}</td>
-                  <td>{guest.attendingWedding}</td>
-                  <td>{guest.attendingDinner}</td>
+                  <td>{guest.attendingWedding ? "Ja" : "Nej"}</td>
+                  <td>{guest.attendingDinner ? "Ja" : "Nej"}</td>
                   <td>{guest.specialFood}</td>
                   <td>{guest.other}</td>
                 </tr>

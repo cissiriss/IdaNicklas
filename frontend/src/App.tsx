@@ -6,15 +6,29 @@ import { WeddingPage } from "./Views/WeddingPage";
 import ProgramPage from "./Views/ProgramPage";
 import { PageLayoutContainer } from "./components/PageLayoutContainer";
 import Footer from "./components/Footer";
+import { Route, Routes } from "react-router-dom";
+import { LoginPage } from "./Views/LoginPage";
+import AdminPage from "./Views/AdminPage";
 
 function App() {
   return (
     <PageLayoutContainer>
-      <DropDown />
-      <StartPage />
-      <WeddingPage />
-      <ProgramPage />
-      <Footer />
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <>
+              <DropDown />
+              <StartPage />
+              <WeddingPage />
+              <ProgramPage />
+              <Footer />
+            </>
+          }
+        />
+        <Route path="/login" element={<LoginPage />} />
+        <Route path="/admin" element={<AdminPage />} />
+      </Routes>
     </PageLayoutContainer>
   );
 }
