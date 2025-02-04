@@ -56,12 +56,8 @@ export default function AdminPage() {
                 <tr>
                   <td className="text-lg">{guest.party}</td>
                   <td className="text-lg">{guest.namn}</td>
-                  <td className="text-lg">
-                    {guest.attendingWedding ? "Ja" : "Nej"}
-                  </td>
-                  <td className="text-lg">
-                    {guest.attendingDinner ? "Ja" : "Nej"}
-                  </td>
+                  <td className="text-lg">{guest.attendingWedding}</td>
+                  <td className="text-lg">{guest.attendingDinner}</td>
                   <td className="text-lg">{guest.specialFood}</td>
                   <td className="text-lg">{guest.email}</td>
                   <td className="text-lg">{guest.other}</td>
