@@ -234,6 +234,10 @@ app.get("/api/rsvp", authenticateAdmin, async (req, res) => {
 
 app.use(express.static(path.join(path.resolve(), "dist")));
 
+app.get("*", (req, res) => {
+  res.sendFile(path.join(path.resolve(), "dist", "index.html"));
+});
+
 const port = process.env.PORT || 3000;
 
 app.listen(port, () => {
